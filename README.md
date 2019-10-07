@@ -5,12 +5,24 @@ ANSI escape codes wrapped in C++ string streams.
 
 It's everything you need for advanced terminal control, wrapped in light headers ready for inclusion.
 
-## Prerequisites
-![min C++ support](https://img.shields.io/badge/C%2B%2B-11%20or%20higher-blue?style=flat&logo=C%2B%2B)
+## Table of Contents
 
-![min cmake version](https://img.shields.io/badge/CMake-3.2%20or%20higher-blue?style=flat&logo=CMake)
+- [About Ansi-Escape \(aesc\)](#about)
+- [Quickstart](#quickstart)
+- [Building AESC](#build)
+- [Codemap](#codemap)
+- [License](#license)
+- [Links](#links)
 
-## Install
+<a name="about"></a>
+## About Ansi-Escape \(aesc\)
+`AESC` is an effort to wrap common terminal controls and colors for prettier terminal output.
+It is built and tested on macOS, but probably will work in other \*NIX systems as well.
+
+To maximize compatibility, we choose to support C++11, with CMake-3.5 as an dependency.
+
+<a name="quickstart"></a>
+## Quickstart
 
 Use it as a [CMake](https://cmake.org) package, or simply install it with [Homebrew](https://brew.sh)
 
@@ -22,3 +34,24 @@ brew install ansi-escape
 ```
 
 ### Include as a CMake package
+
+###
+
+<a name="build"></a>
+## Building AESC
+[Buck](https://buck.build) is the official build system, which is supported on most major platforms and compilers. See [quickstart](#quickstart) for more information on building Abseil using the Buck build system.
+
+If you require CMake support, please check the [CMake build instructions](CMake/README.md).
+
+<a name="codemap"></a>
+## Codemap
+
+<a name="license"></a>
+## License
+AESC is licensed under the terms of the . See [LICENSE](LICENSE) for more information.
+
+<a name="links"</a>
+## Links
+Projects that use Ansi-Escape
+- [cpp-logger](https://github.com/AlexFxw/cpp-logger)
+
