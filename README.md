@@ -7,9 +7,9 @@ ANSI escape codes wrapped in C++ string streams.
 It's everything you need for advanced terminal control, wrapped in light headers ready for inclusion.
 
 ## Prerequisites
-![min C++ support](https://img.shields.io/badge/C%2B%2B-11-blue?style=flat&logo=C%2B%2B)
+![min C++ support](https://img.shields.io/badge/C%2B%2B-11%20or%20higher-blue?style=flat&logo=C%2B%2B)
 
-![min cmake version](https://img.shields.io/badge/CMake->3.2-blue?style=flat&logo=CMake)
+![min cmake version](https://img.shields.io/badge/CMake-3.2%20or%20higher-blue?style=flat&logo=CMake)
 
 ## Install
 
