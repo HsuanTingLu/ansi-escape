@@ -18,7 +18,7 @@ Use it as a [CMake](https://cmake.org) package, or simply install it with [Homeb
 
 ```Shell
 brew tap hsuantinglu/terminal-utils
-brew cask install ansi-escape
+brew install ansi-escape
 ```
 
 ### Include as a CMake package
