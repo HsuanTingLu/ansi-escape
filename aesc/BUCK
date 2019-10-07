@@ -1,0 +1,15 @@
+cxx_library(
+    name = 'csi',
+    src = ['csi.hpp']
+    header_namespace = name,
+    exported_headers = [
+        'csi.hpp',
+    ],
+    link_style = "static",
+    preferred_linkage = "any",
+    exported_deps = [],
+    precompiled_header = [],
+    tests = [],
+    visibility = [],
+    labels = []
+)

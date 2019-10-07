@@ -2,6 +2,8 @@
 ## Buck
 .buckd/
 buck-out/
+## CMake
+build/
 
 # Editors
 ## vscode
