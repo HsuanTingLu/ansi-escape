@@ -475,6 +475,14 @@ inline smanip background(int n = 1) {
 }  // namespace grey
 }  // namespace color256
 
+namespace truecolor {
+inline namespace {  // 24-bit, true color
+constexpr const char* foreground_24bit_expr = "38;2;";
+constexpr const char* background_24bit_expr = "48;2;";
+}  // anonymous namespace
+namespace RGB {
+}  // namespace RGB
+}  // namespace truecolor
 }  // namespace aesc
 
 #endif
