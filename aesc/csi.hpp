@@ -203,17 +203,16 @@ inline std::ostream& underline(std::ostream& stream) {
     stream << CSI_expr << underline_expr << color_end_expr;
     return stream;
 }
-class blink {
-   public:
-    inline static std::ostream& slow(std::ostream& stream) {
-        stream << CSI_expr << slow_blink_expr << color_end_expr;
-        return stream;
-    }
-    inline static std::ostream& rapid(std::ostream& stream) {
-        stream << CSI_expr << rapid_blink_expr << color_end_expr;
-        return stream;
-    }
-};
+namespace blink {
+inline std::ostream& slow(std::ostream& stream) {
+    stream << CSI_expr << slow_blink_expr << color_end_expr;
+    return stream;
+}
+inline std::ostream& rapid(std::ostream& stream) {
+    stream << CSI_expr << rapid_blink_expr << color_end_expr;
+    return stream;
+}
+}  // namespace blink
 inline std::ostream& reverse_color(std::ostream& stream) {
     stream << CSI_expr << reverse_expr << color_end_expr;
     return stream;
@@ -317,111 +316,108 @@ inline static std::ostream& white(std::ostream& stream) {
     return stream;
 }
 
-class background {
-   public:
-    inline static std::ostream& black(std::ostream& stream) {
-        stream << CSI_expr << bg_black_expr << SGR::color_end_expr;
-        return stream;
-    }
-    inline static std::ostream& red(std::ostream& stream) {
-        stream << CSI_expr << bg_red_expr << SGR::color_end_expr;
-        return stream;
-    }
-    inline static std::ostream& green(std::ostream& stream) {
-        stream << CSI_expr << bg_green_expr << SGR::color_end_expr;
-        return stream;
-    }
-    inline static std::ostream& yellow(std::ostream& stream) {
-        stream << CSI_expr << bg_yellow_expr << SGR::color_end_expr;
-        return stream;
-    }
-    inline static std::ostream& blue(std::ostream& stream) {
-        stream << CSI_expr << bg_blue_expr << SGR::color_end_expr;
-        return stream;
-    }
-    inline static std::ostream& magenta(std::ostream& stream) {
-        stream << CSI_expr << bg_magenta_expr << SGR::color_end_expr;
-        return stream;
-    }
-    inline static std::ostream& cyan(std::ostream& stream) {
-        stream << CSI_expr << bg_cyan_expr << SGR::color_end_expr;
-        return stream;
-    }
-    inline static std::ostream& white(std::ostream& stream) {
-        stream << CSI_expr << bg_white_expr << SGR::color_end_expr;
-        return stream;
-    }
-};
-class bright {
-   public:
-    inline static std::ostream& black(std::ostream& stream) {
-        stream << CSI_expr << b_fg_black_expr << SGR::color_end_expr;
-        return stream;
-    }
-    inline static std::ostream& red(std::ostream& stream) {
-        stream << CSI_expr << b_fg_red_expr << SGR::color_end_expr;
-        return stream;
-    }
-    inline static std::ostream& green(std::ostream& stream) {
-        stream << CSI_expr << b_fg_green_expr << SGR::color_end_expr;
-        return stream;
-    }
-    inline static std::ostream& yellow(std::ostream& stream) {
-        stream << CSI_expr << b_fg_yellow_expr << SGR::color_end_expr;
-        return stream;
-    }
-    inline static std::ostream& blue(std::ostream& stream) {
-        stream << CSI_expr << b_fg_blue_expr << SGR::color_end_expr;
-        return stream;
-    }
-    inline static std::ostream& magenta(std::ostream& stream) {
-        stream << CSI_expr << b_fg_magenta_expr << SGR::color_end_expr;
-        return stream;
-    }
-    inline static std::ostream& cyan(std::ostream& stream) {
-        stream << CSI_expr << b_fg_cyan_expr << SGR::color_end_expr;
-        return stream;
-    }
-    inline static std::ostream& white(std::ostream& stream) {
-        stream << CSI_expr << b_fg_white_expr << SGR::color_end_expr;
-        return stream;
-    }
-    class background {
-       public:
-        inline static std::ostream& black(std::ostream& stream) {
-            stream << CSI_expr << b_bg_black_expr << SGR::color_end_expr;
-            return stream;
-        }
-        inline static std::ostream& red(std::ostream& stream) {
-            stream << CSI_expr << b_bg_red_expr << SGR::color_end_expr;
-            return stream;
-        }
-        inline static std::ostream& green(std::ostream& stream) {
-            stream << CSI_expr << b_bg_green_expr << SGR::color_end_expr;
-            return stream;
-        }
-        inline static std::ostream& yellow(std::ostream& stream) {
-            stream << CSI_expr << b_bg_yellow_expr << SGR::color_end_expr;
-            return stream;
-        }
-        inline static std::ostream& blue(std::ostream& stream) {
-            stream << CSI_expr << b_bg_blue_expr << SGR::color_end_expr;
-            return stream;
-        }
-        inline static std::ostream& magenta(std::ostream& stream) {
-            stream << CSI_expr << b_bg_magenta_expr << SGR::color_end_expr;
-            return stream;
-        }
-        inline static std::ostream& cyan(std::ostream& stream) {
-            stream << CSI_expr << b_bg_cyan_expr << SGR::color_end_expr;
-            return stream;
-        }
-        inline static std::ostream& white(std::ostream& stream) {
-            stream << CSI_expr << b_bg_white_expr << SGR::color_end_expr;
-            return stream;
-        }
-    };
-};
+namespace background {
+inline std::ostream& black(std::ostream& stream) {
+    stream << CSI_expr << bg_black_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& red(std::ostream& stream) {
+    stream << CSI_expr << bg_red_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& green(std::ostream& stream) {
+    stream << CSI_expr << bg_green_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& yellow(std::ostream& stream) {
+    stream << CSI_expr << bg_yellow_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& blue(std::ostream& stream) {
+    stream << CSI_expr << bg_blue_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& magenta(std::ostream& stream) {
+    stream << CSI_expr << bg_magenta_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& cyan(std::ostream& stream) {
+    stream << CSI_expr << bg_cyan_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& white(std::ostream& stream) {
+    stream << CSI_expr << bg_white_expr << SGR::color_end_expr;
+    return stream;
+}
+}  // namespace background
+namespace bright {
+inline std::ostream& black(std::ostream& stream) {
+    stream << CSI_expr << b_fg_black_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& red(std::ostream& stream) {
+    stream << CSI_expr << b_fg_red_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& green(std::ostream& stream) {
+    stream << CSI_expr << b_fg_green_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& yellow(std::ostream& stream) {
+    stream << CSI_expr << b_fg_yellow_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& blue(std::ostream& stream) {
+    stream << CSI_expr << b_fg_blue_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& magenta(std::ostream& stream) {
+    stream << CSI_expr << b_fg_magenta_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& cyan(std::ostream& stream) {
+    stream << CSI_expr << b_fg_cyan_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& white(std::ostream& stream) {
+    stream << CSI_expr << b_fg_white_expr << SGR::color_end_expr;
+    return stream;
+}
+namespace background {
+inline std::ostream& black(std::ostream& stream) {
+    stream << CSI_expr << b_bg_black_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& red(std::ostream& stream) {
+    stream << CSI_expr << b_bg_red_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& green(std::ostream& stream) {
+    stream << CSI_expr << b_bg_green_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& yellow(std::ostream& stream) {
+    stream << CSI_expr << b_bg_yellow_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& blue(std::ostream& stream) {
+    stream << CSI_expr << b_bg_blue_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& magenta(std::ostream& stream) {
+    stream << CSI_expr << b_bg_magenta_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& cyan(std::ostream& stream) {
+    stream << CSI_expr << b_bg_cyan_expr << SGR::color_end_expr;
+    return stream;
+}
+inline std::ostream& white(std::ostream& stream) {
+    stream << CSI_expr << b_bg_white_expr << SGR::color_end_expr;
+    return stream;
+}
+}  // namespace background
+}  // namespace bright
 }  // namespace color
 
 namespace color256 {
@@ -434,72 +430,51 @@ constexpr const char* background_8bit_expr = "48;5;";
  * 232-255:  grayscale from black to white in 24 steps
  */
 }  // anonymous namespace
-class RGB {
-    inline smanipiii foreground(int r = 0, int g = 0, int b = 0) {
-        // assert 0 <= r,g,b <= 5
-        auto h = [](std::ostream& s, int r, int g, int b) -> std::ostream& {
-            s << CSI_expr << foreground_8bit_expr << 16 + 36 * r + 6 * g + b
-              << SGR::color_end_expr;
-            return s;
-        };
-        return smanipiii(h, r, g, b);
-    }
-    inline smanipiii background(int r = 0, int g = 0, int b = 0) {
-        // assert 0 <= r,g,b <= 5
-        auto h = [](std::ostream& s, int r, int g, int b) -> std::ostream& {
-            s << CSI_expr << background_8bit_expr << 16 + 36 * r + 6 * g + b
-              << SGR::color_end_expr;
-            return s;
-        };
-        return smanipiii(h, r, g, b);
-    }
-};
+namespace RGB {
+inline smanip foreground(int r = 0, int g = 0, int b = 0) {
+    const int rgb = 16 + 36 * r + 6 * g + b;
+    // @todo: assert 0 <= r,g,b <= 5
+    auto h = [](std::ostream& s, int c) -> std::ostream& {
+        s << CSI_expr << foreground_8bit_expr << c << SGR::color_end_expr;
+        return s;
+    };
+    return smanip(h, rgb);
+}
+inline smanip background(int r = 0, int g = 0, int b = 0) {
+    const int rgb = 16 + 36 * r + 6 * g + b;
+    // @todo: assert 0 <= r,g,b <= 5
+    auto h = [](std::ostream& s, int c) -> std::ostream& {
+        s << CSI_expr << background_8bit_expr << c << SGR::color_end_expr;
+        return s;
+    };
+    return smanip(h, rgb);
+}
+}  // namespace RGB
 
-class grey {
-   public:
-    inline static smanip foreground(int n = 1) {
-        auto h = [](std::ostream& s, int x) -> std::ostream& {
-            s << CSI_expr << foreground_8bit_expr << -x << SGR::color_end_expr;
-            return s;
-        };
-        return smanip(h, n);
-    }
-    inline static smanip background(int n = 1) {
-        auto h = [](std::ostream& s, int x) -> std::ostream& {
-            s << CSI_expr << background_8bit_expr << -x << SGR::color_end_expr;
-            return s;
-        };
-        return smanip(h, n);
-    }
-};
+namespace grey {
+/*
+ * 24 step grey:
+ * <n> ranges from 0 to 23, from white to black
+ */
+inline smanip foreground(int n = 1) {
+    // @todo: assert 0 <= n <= 23
+    auto h = [](std::ostream& s, int x) -> std::ostream& {
+        s << CSI_expr << foreground_8bit_expr << 255 - x << SGR::color_end_expr;
+        return s;
+    };
+    return smanip(h, n);
+}
+inline smanip background(int n = 1) {
+    // @todo: assert 0 <= n <= 23
+    auto h = [](std::ostream& s, int x) -> std::ostream& {
+        s << CSI_expr << background_8bit_expr << 255 - x << SGR::color_end_expr;
+        return s;
+    };
+    return smanip(h, n);
+}
+}  // namespace grey
 }  // namespace color256
 
-namespace truecolor {
-inline namespace {  // 24-bit, true color
-constexpr const char* foreground_24bit_expr = "38;2;";
-constexpr const char* background_24bit_expr = "48;2;";
-}  // anonymous namespace
-class RGB {
-    inline static smanipiii foreground(int r = 0, int g = 0, int b = 0) {
-        //@todo: assert 0 <= r,g,b <= 5
-        auto h = [](std::ostream& s, int r, int g, int b) -> std::ostream& {
-            s << CSI_expr << foreground_24bit_expr << r << ";" << g << ";" << b
-              << SGR::color_end_expr;
-            return s;
-        };
-        return smanipiii(h, r, g, b);
-    }
-    inline static smanipiii background(int r = 0, int g = 0, int b = 0) {
-        // assert 0 <= r,g,b <= 5
-        auto h = [](std::ostream& s, int r, int g, int b) -> std::ostream& {
-            s << CSI_expr << background_24bit_expr << r << ";" << g << ";" << b
-              << SGR::color_end_expr;
-            return s;
-        };
-        return smanipiii(h, r, g, b);
-    }
-};
-}  // namespace truecolor
 }  // namespace aesc
 
 #endif
