@@ -31,11 +31,12 @@ inline namespace {
  */
 class smanip {  // manipulator that takes a single int as argument
    public:
-    smanip(std::ostream& (*ff)(std::ostream&, int), int ii) : f{ff}, i{ii} {}
+    smanip(std::ostream& (*ff)(std::ostream&, const int), const int ii)
+        : f{ff}, i{ii} {}
 
    public:
-    std::ostream& (*f)(std::ostream&, int);  // function to be called
-    int i;                                   // value to be used as argument
+    std::ostream& (*f)(std::ostream&, const int);  // function to be called
+    const int i;  // value to be used as argument
 };
 
 template <typename CharT, typename Traits>
@@ -47,16 +48,18 @@ std::basic_ostream<CharT, Traits>& operator<<(
 
 class smanipiii {  // manipulator that takes triple ints as arguments
    public:
-    smanipiii(std::ostream& (*ff)(std::ostream&, int, int, int), int i1, int i2,
-              int i3)
+    smanipiii(std::ostream& (*ff)(std::ostream&, const int, const int,
+                                  const int),
+              const int i1, const int i2, const int i3)
         : f{ff}, i1{i1}, i2{i2}, i3{i3} {}
 
    public:
-    std::ostream& (*f)(std::ostream&, int, int, int);  // function to be called
+    std::ostream& (*f)(std::ostream&, const int, const int,
+                       const int);  // function to be called
     // values to be used as argument
-    int i1;
-    int i2;
-    int i3;
+    const int i1;
+    const int i2;
+    const int i3;
 };
 
 template <typename CharT, typename Traits>
@@ -100,43 +103,43 @@ constexpr const char* save_cursor_expr = "s";
 constexpr const char* restore_cursor_expr = "u";
 }  // anonymous namespace
 
-inline smanip up(int n = 1) {
-    auto h = [](std::ostream& s, int x) -> std::ostream& {
+inline smanip up(const int n = 1) {
+    auto h = [](std::ostream& s, const int x) -> std::ostream& {
         s << CSI_expr << x << up_expr;
         return s;
     };
     return smanip(h, n);
 }
-inline smanip down(int n = 1) {
-    auto h = [](std::ostream& s, int x) -> std::ostream& {
+inline smanip down(const int n = 1) {
+    auto h = [](std::ostream& s, const int x) -> std::ostream& {
         s << CSI_expr << x << down_expr;
         return s;
     };
     return smanip(h, n);
 }
-inline smanip forward(int n = 1) {
-    auto h = [](std::ostream& s, int x) -> std::ostream& {
+inline smanip forward(const int n = 1) {
+    auto h = [](std::ostream& s, const int x) -> std::ostream& {
         s << CSI_expr << x << forward_expr;
         return s;
     };
     return smanip(h, n);
 }
-inline smanip back(int n = 1) {
-    auto h = [](std::ostream& s, int x) -> std::ostream& {
+inline smanip back(const int n = 1) {
+    auto h = [](std::ostream& s, const int x) -> std::ostream& {
         s << CSI_expr << x << back_expr;
         return s;
     };
     return smanip(h, n);
 }
-inline smanip next_line(int n = 1) {
-    auto h = [](std::ostream& s, int x) -> std::ostream& {
+inline smanip next_line(const int n = 1) {
+    auto h = [](std::ostream& s, const int x) -> std::ostream& {
         s << CSI_expr << x << next_line_expr;
         return s;
     };
     return smanip(h, n);
 }
-inline smanip prev_line(int n = 1) {
-    auto h = [](std::ostream& s, int x) -> std::ostream& {
+inline smanip prev_line(const int n = 1) {
+    auto h = [](std::ostream& s, const int x) -> std::ostream& {
         s << CSI_expr << x << prev_line_expr;
         return s;
     };
@@ -149,7 +152,7 @@ inline smanip EL(clear n) {
      * n = 1: clear from cursor to beginning of the screen
      * n = 2: clear entire screen, and moves cursor to upper left
      */
-    auto h = [](std::ostream& s, int x) -> std::ostream& {
+    auto h = [](std::ostream& s, const int x) -> std::ostream& {
         s << CSI_expr << x << erase_in_line_expr;
         return s;
     };
@@ -432,18 +435,20 @@ constexpr const char* background_8bit_expr = "48;5;";
  */
 }  // anonymous namespace
 namespace RGB {
-inline smanipiii foreground(int r = 0, int g = 0, int b = 0) {
+inline smanipiii foreground(const int r = 0, const int g = 0, const int b = 0) {
     // @todo: assert 0 <= r,g,b <= 5
-    auto h = [](std::ostream& s, int r, int g, int b) -> std::ostream& {
+    auto h = [](std::ostream& s, const int r, const int g,
+                const int b) -> std::ostream& {
         s << CSI_expr << foreground_8bit_expr << 16 + 36 * r + 6 * g + b
           << SGR::color_end_expr;
         return s;
     };
     return smanipiii(h, r, g, b);
 }
-inline smanipiii background(int r = 0, int g = 0, int b = 0) {
+inline smanipiii background(const int r = 0, const int g = 0, const int b = 0) {
     // @todo: assert 0 <= r,g,b <= 5
-    auto h = [](std::ostream& s, int r, int g, int b) -> std::ostream& {
+    auto h = [](std::ostream& s, const int r, const int g,
+                const int b) -> std::ostream& {
         s << CSI_expr << background_8bit_expr << 16 + 36 * r + 6 * g + b
           << SGR::color_end_expr;
         return s;
@@ -457,17 +462,17 @@ namespace grey {
  * 24 step grey:
  * <n> ranges from 0 to 23, from white to black
  */
-inline smanip foreground(int n = 1) {
+inline smanip foreground(const int n = 1) {
     // @todo: assert 0 <= n <= 23
-    auto h = [](std::ostream& s, int x) -> std::ostream& {
+    auto h = [](std::ostream& s, const int x) -> std::ostream& {
         s << CSI_expr << foreground_8bit_expr << 255 - x << SGR::color_end_expr;
         return s;
     };
     return smanip(h, n);
 }
-inline smanip background(int n = 1) {
+inline smanip background(const int n = 1) {
     // @todo: assert 0 <= n <= 23
-    auto h = [](std::ostream& s, int x) -> std::ostream& {
+    auto h = [](std::ostream& s, const int x) -> std::ostream& {
         s << CSI_expr << background_8bit_expr << 255 - x << SGR::color_end_expr;
         return s;
     };
@@ -482,18 +487,20 @@ constexpr const char* foreground_24bit_expr = "38;2;";
 constexpr const char* background_24bit_expr = "48;2;";
 }  // anonymous namespace
 namespace RGB {
-inline smanipiii foreground(int r = 0, int g = 0, int b = 0) {
+inline smanipiii foreground(const int r = 0, const int g = 0, const int b = 0) {
     // @todo: assert 0 <= r,g,b <= 255
-    auto h = [](std::ostream& s, int r, int g, int b) -> std::ostream& {
+    auto h = [](std::ostream& s, const int r, const int g,
+                const int b) -> std::ostream& {
         s << CSI_expr << foreground_24bit_expr << r << ";" << g << ";" << b
           << SGR::color_end_expr;
         return s;
     };
     return smanipiii(h, r, g, b);
 }
-inline smanipiii background(int r = 0, int g = 0, int b = 0) {
+inline smanipiii background(const int r = 0, const int g = 0, const int b = 0) {
     // @todo: assert 0 <= r,g,b <= 255
-    auto h = [](std::ostream& s, int r, int g, int b) -> std::ostream& {
+    auto h = [](std::ostream& s, const int r, const int g,
+                const int b) -> std::ostream& {
         s << CSI_expr << background_24bit_expr << r << ";" << g << ";" << b
           << SGR::color_end_expr;
         return s;
