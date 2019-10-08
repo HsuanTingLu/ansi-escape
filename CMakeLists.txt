@@ -1,7 +1,7 @@
 #
 # Copyright (C) 2019  Hsuan-Ting Lu <hsuan.ting.lu.ee05@g2.nctu.edu.tw>
 #
-# Wrap some CSI escape codes with string streams
+# CMake configs
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -63,6 +63,7 @@ endif()
 # find_package(xxx REQUIRED)
 
 add_subdirectory(aesc)
+add_subdirectory(test)
 
 if(AESC_ENABLE_INSTALL)
 endif()  # AESC_ENABLE_INSTALL
