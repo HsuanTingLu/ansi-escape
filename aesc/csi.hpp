@@ -481,7 +481,7 @@ constexpr const char* background_24bit_expr = "48;2;";
 }  // anonymous namespace
 class RGB {
     inline static smanipiii foreground(int r = 0, int g = 0, int b = 0) {
-        // assert 0 <= r,g,b <= 5
+        //@todo: assert 0 <= r,g,b <= 5
         auto h = [](std::ostream& s, int r, int g, int b) -> std::ostream& {
             s << CSI_expr << foreground_24bit_expr << r << ";" << g << ";" << b
               << SGR::color_end_expr;
