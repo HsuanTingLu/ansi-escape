@@ -29,7 +29,7 @@ inline namespace {
 /*
  * for stream manipulators that needs arguments
  */
-class smanip {  // takes single int
+class smanip {  // manipulator that takes a single int as argument
    public:
     smanip(std::ostream& (*ff)(std::ostream&, int), int ii) : f{ff}, i{ii} {}
 
@@ -45,7 +45,7 @@ std::basic_ostream<CharT, Traits>& operator<<(
     return os;
 }
 
-class smanipiii {  // takes triple int
+class smanipiii {  // manipulator that takes triple ints as arguments
    public:
     smanipiii(std::ostream& (*ff)(std::ostream&, int, int, int), int i1, int i2,
               int i3)
@@ -53,7 +53,8 @@ class smanipiii {  // takes triple int
 
    public:
     std::ostream& (*f)(std::ostream&, int, int, int);  // function to be called
-    int i1;  // value to be used as argument
+    // values to be used as argument
+    int i1;
     int i2;
     int i3;
 };
