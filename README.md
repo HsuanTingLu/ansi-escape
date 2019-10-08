@@ -46,6 +46,9 @@ If you require CMake support, please check the [CMake build instructions](CMake/
 <a name="codemap"></a>
 ## Codemap
 
+- [aesc](aesc/README.md):
+    - [csi](aesc/csi.hpp)
+
 <a name="license"></a>
 ## License
 AESC is licensed under the terms of the . See [LICENSE](LICENSE) for more information.
