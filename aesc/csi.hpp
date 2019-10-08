@@ -30,11 +30,15 @@ inline namespace {
  * for stream manipulators that needs arguments
  */
 class smanip {  // manipulator that takes a single int as argument
+    template <typename CharT, typename Traits>
+    friend std::basic_ostream<CharT, Traits>& operator<<(
+        std::basic_ostream<CharT, Traits>&, const smanip&);
+
    public:
     smanip(std::ostream& (*ff)(std::ostream&, const int), const int ii)
         : f{ff}, i{ii} {}
 
-   public:
+   private:
     std::ostream& (*f)(std::ostream&, const int);  // function to be called
     const int i;  // value to be used as argument
 };
@@ -47,13 +51,17 @@ std::basic_ostream<CharT, Traits>& operator<<(
 }
 
 class smanipiii {  // manipulator that takes triple ints as arguments
+    template <typename CharT, typename Traits>
+    friend std::basic_ostream<CharT, Traits>& operator<<(
+        std::basic_ostream<CharT, Traits>&, const smanipiii&);
+
    public:
     smanipiii(std::ostream& (*ff)(std::ostream&, const int, const int,
                                   const int),
               const int i1, const int i2, const int i3)
         : f{ff}, i1{i1}, i2{i2}, i3{i3} {}
 
-   public:
+   private:
     std::ostream& (*f)(std::ostream&, const int, const int,
                        const int);  // function to be called
     // values to be used as argument
