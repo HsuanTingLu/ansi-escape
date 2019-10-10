@@ -25,7 +25,6 @@
 #include "color/color.hpp"
 #include "color/color256.hpp"
 #include "color/truecolor.hpp"
-#include "csi.hpp"
 #include "cursor.hpp"
 #include "manipulator.hpp"
 
