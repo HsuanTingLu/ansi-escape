@@ -31,52 +31,6 @@
 
 namespace aesc {  // Ansi Escape Terminal
 
-namespace color {
-std::ostream& black(std::ostream& stream);
-std::ostream& red(std::ostream& stream);
-std::ostream& green(std::ostream& stream);
-std::ostream& yellow(std::ostream& stream);
-std::ostream& blue(std::ostream& stream);
-std::ostream& magenta(std::ostream& stream);
-std::ostream& cyan(std::ostream& stream);
-std::ostream& white(std::ostream& stream);
-
-namespace background {
-std::ostream& black(std::ostream& stream);
-std::ostream& red(std::ostream& stream);
-std::ostream& green(std::ostream& stream);
-std::ostream& yellow(std::ostream& stream);
-std::ostream& blue(std::ostream& stream);
-std::ostream& magenta(std::ostream& stream);
-std::ostream& cyan(std::ostream& stream);
-std::ostream& white(std::ostream& stream);
-}  // namespace background
-
-namespace bright {
-std::ostream& black(std::ostream& stream);
-std::ostream& red(std::ostream& stream);
-std::ostream& green(std::ostream& stream);
-std::ostream& yellow(std::ostream& stream);
-std::ostream& blue(std::ostream& stream);
-std::ostream& magenta(std::ostream& stream);
-std::ostream& cyan(std::ostream& stream);
-std::ostream& white(std::ostream& stream);
-
-namespace background {
-std::ostream& black(std::ostream& stream);
-std::ostream& red(std::ostream& stream);
-std::ostream& green(std::ostream& stream);
-std::ostream& yellow(std::ostream& stream);
-std::ostream& blue(std::ostream& stream);
-std::ostream& magenta(std::ostream& stream);
-std::ostream& cyan(std::ostream& stream);
-std::ostream& white(std::ostream& stream);
-}  // namespace background
-
-}  // namespace bright
-
-}  // namespace color
-
 namespace color256 {
 // 8-bit, 256 colors
 /* <Predefined 256 colors>
