@@ -17,33 +17,18 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-add_executable(showcolor EXCLUDE_FROM_ALL show_color.cpp)
+add_subdirectory(color)
 
-target_compile_features(showcolor
-    PUBLIC
-        cxx_std_11
-)
-set_target_properties(showcolor PROPERTIES
-    CXX_EXTENSIONS OFF
-)
-
-target_compile_options(showcolor
+target_sources(aesc
     PRIVATE
-        -Wall
-        -Wextra
-        -pedantic
-        -Werror
+        ${CMAKE_CURRENT_SOURCE_DIR}/SGR
 )
 
-# TODO: @todo: if CMAKE version at least 3.9
-# Linker optimizations
-include(CheckIPOSupported)
-check_ipo_supported(RESULT ipo_support OUTPUT ipo_out LANGUAGES CXX)
-
-if(ipo_support)
-    set_property(TARGET showcolor PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE)
-else()
-    message(WARNING "IPO is not supported: ${ipo_out}")
-endif()
-
-target_link_libraries(showcolor PRIVATE aesc)
+target_include_directories(aesc
+    PUBLIC
+        $<INSTALL_INTERFACE:color>
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/color>
+    PRIVATE
+        # exclude ./internal
+        ${CMAKE_CURRENT_SOURCE_DIR}/internal
+)
