@@ -20,7 +20,7 @@
 #include <iostream>
 #include "../aesc/aesc.hpp"
 
-int main(int argc, char** argv) {
+int main() {
     std::cout << "line1" << std::endl
          << "line2" << std::endl
          << aesc::cursor::up(1) << "33" << aesc::cursor::EL(aesc::cursor::clear::entire) << "a"
