@@ -20,40 +20,38 @@
 #include <iostream>
 #include "../aesc/csi.hpp"
 
-using namespace std;
-using namespace aesc;
 int main(int argc, char** argv) {
-    cout << "line1" << endl
-         << "line2" << endl
-         << cursor::up(1) << "33" << cursor::EL(cursor::clear::entire) << "a"
-         << endl;
-    cout << SGR::bold << SGR::blink::slow << " bold" << SGR::reverse_color
-         << " reversed" << SGR::reset_intensity << " reset bold"
-         << SGR::cancel_blink << " reset blink" << SGR::cancel_inverse
-         << " cancel reverse" << endl;
-    cout << " pre-reset" << SGR::reset << " post-reset" << endl;
+    std::cout << "line1" << std::endl
+         << "line2" << std::endl
+         << aesc::cursor::up(1) << "33" << aesc::cursor::EL(aesc::cursor::clear::entire) << "a"
+         << std::endl;
+    std::cout << aesc::SGR::bold << aesc::SGR::blink::slow << " bold" << aesc::SGR::reverse_color
+         << " reversed" << aesc::SGR::reset_intensity << " reset bold"
+         << aesc::SGR::cancel_blink << " reset blink" << aesc::SGR::cancel_inverse
+         << " cancel reverse" << std::endl;
+    std::cout << " pre-reset" << aesc::SGR::reset << " post-reset" << std::endl;
 
-    cout << color::red << color::background::cyan << " bg_cyan, fg_red"
-         << SGR::reset << endl;
-    cout << color::bright::red << color::bright::background::cyan
-         << " bright bg_cyan, bright fg_red" << SGR::reset << endl;
+    std::cout << aesc::color::red << aesc::color::background::cyan << " bg_cyan, fg_red"
+         << aesc::SGR::reset << std::endl;
+    std::cout << aesc::color::bright::red << aesc::color::bright::background::cyan
+         << " bright bg_cyan, bright fg_red" << aesc::SGR::reset << std::endl;
 
-    cout << "24 level grey FOREground:" << endl << "start";
+    std::cout << "24 level grey FOREground:" << std::endl << "start";
     for (int i = 0; i != 24; ++i) {
-        cout << color256::grey::foreground(i) << "█";
+        std::cout << aesc::color256::grey::foreground(i) << "█";
     }
-    cout << SGR::reset << "done" << endl;
-    cout << "24 level grey BACKground:" << endl << "start";
+    std::cout << aesc::SGR::reset << "done" << std::endl;
+    std::cout << "24 level grey BACKground:" << std::endl << "start";
     for (int i = 0; i != 24; ++i) {
-        cout << color256::grey::background(i) << " ";
+        std::cout << aesc::color256::grey::background(i) << " ";
     }
-    cout << SGR::reset << "done" << endl;
+    std::cout << aesc::SGR::reset << "done" << std::endl;
 
-    cout << color256::RGB::foreground(2, 3, 0) << "256 color RGB test sequence"
-         << SGR::reset << endl;
+    std::cout << aesc::color256::RGB::foreground(2, 3, 0) << "256 color RGB test sequence"
+         << aesc::SGR::reset << std::endl;
 
-    cout << truecolor::RGB::foreground(130, 250, 0)
-         << "24-bit true color RGB test sequence" << SGR::reset << endl;
+    std::cout << aesc::truecolor::RGB::foreground(130, 250, 0)
+         << "24-bit true color RGB test sequence" << aesc::SGR::reset << std::endl;
 
     return 0;
 }
