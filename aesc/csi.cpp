@@ -19,38 +19,3 @@
  */
 
 #include "csi.hpp"
-
-namespace aesc {
-
-namespace truecolor {
-namespace {  // 24-bit, true color
-constexpr const char* foreground_24bit_expr = "38;2;";
-constexpr const char* background_24bit_expr = "48;2;";
-}  // anonymous namespace
-
-namespace RGB {
-manipulator::smanipiii foreground(const int r, const int g, const int b) {
-    // @todo: assert 0 <= r,g,b <= 255
-    auto h = [](std::ostream& s, const int r, const int g,
-                const int b) -> std::ostream& {
-        s << CSI_expr << foreground_24bit_expr << r << ";" << g << ";" << b
-          << color_end_expr;
-        return s;
-    };
-    return manipulator::smanipiii(h, r, g, b);
-}
-manipulator::smanipiii background(const int r, const int g, const int b) {
-    // @todo: assert 0 <= r,g,b <= 255
-    auto h = [](std::ostream& s, const int r, const int g,
-                const int b) -> std::ostream& {
-        s << CSI_expr << background_24bit_expr << r << ";" << g << ";" << b
-          << color_end_expr;
-        return s;
-    };
-    return manipulator::smanipiii(h, r, g, b);
-}
-}  // namespace RGB
-
-}  // namespace truecolor
-
-}  // namespace aesc
