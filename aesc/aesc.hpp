@@ -21,12 +21,21 @@
 #ifndef AESC_AESC_HPP_
 #define AESC_AESC_HPP_
 
-#include "csi.hpp"
-#include "cursor.hpp"
-#include "manipulator.hpp"
 #include "SGR.hpp"
 #include "color/color.hpp"
 #include "color/color256.hpp"
 #include "color/truecolor.hpp"
+#include "csi.hpp"
+#include "cursor.hpp"
+#include "manipulator.hpp"
+
+namespace aesc {
+// Control Sequence Introducer
+constexpr const char* CSI_expr = "\033[";
+constexpr const char* color_end_expr = "m";
+/*
+ * sequence of parameters are seperated with semicolons ';'
+ */
+}  // namespace aesc
 
 #endif
