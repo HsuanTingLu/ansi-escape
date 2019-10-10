@@ -73,14 +73,6 @@ std::basic_ostream<CharT, Traits>& operator<<(
 }
 }  // namespace manipulator
 
-namespace {
-// Control Sequence Introducer
-constexpr const char* CSI_expr = "\033[";
-/*
- * sequence of parameters are seperated with semicolons ';'
- */
-}  // anonymous namespace
-
 namespace cursor {
 enum class clear : int { to_end = 0, to_beginning = 1, entire = 2 };
 manipulator::smanip up(const int n = 1);
@@ -102,10 +94,6 @@ std::ostream& restore_pos(std::ostream& stream);
 }  // namespace cursor
 
 namespace SGR {  // Select Graphic Rendition
-
-namespace {
-constexpr const char* color_end_expr = "m";
-}  // anonymous namespace
 
 std::ostream& reset(std::ostream& stream);
 std::ostream& bold(std::ostream& stream);   // with increased intensity

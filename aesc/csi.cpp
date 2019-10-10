@@ -32,6 +32,15 @@ smanipiii::smanipiii(std::ostream& (*ff)(std::ostream&, const int, const int,
     : f{ff}, i1{i1}, i2{i2}, i3{i3} {}
 }  // namespace manipulator
 
+namespace {
+// Control Sequence Introducer
+constexpr const char* CSI_expr = "\033[";
+constexpr const char* color_end_expr = "m";
+/*
+ * sequence of parameters are seperated with semicolons ';'
+ */
+}  // anonymous namespace
+
 namespace cursor {
 namespace {
 constexpr const char* up_expr = "A";
@@ -110,7 +119,7 @@ std::ostream& restore_pos(std::ostream& stream) {
 
 }  // namespace cursor
 
-namespace SGR {
+namespace SGR {  // Select Graphic Rendition
 namespace {
 // HACK: constexpr const char* color_end_expr = "m";
 constexpr const char* reset_expr = "0";
@@ -233,137 +242,137 @@ constexpr const char* b_bg_white_expr = "107";
 }  // anonymous namespace
 
 std::ostream& black(std::ostream& stream) {
-    stream << CSI_expr << fg_black_expr << SGR::color_end_expr;
+    stream << CSI_expr << fg_black_expr << color_end_expr;
     return stream;
 }
 std::ostream& red(std::ostream& stream) {
-    stream << CSI_expr << fg_red_expr << SGR::color_end_expr;
+    stream << CSI_expr << fg_red_expr << color_end_expr;
     return stream;
 }
 std::ostream& green(std::ostream& stream) {
-    stream << CSI_expr << fg_green_expr << SGR::color_end_expr;
+    stream << CSI_expr << fg_green_expr << color_end_expr;
     return stream;
 }
 std::ostream& yellow(std::ostream& stream) {
-    stream << CSI_expr << fg_yellow_expr << SGR::color_end_expr;
+    stream << CSI_expr << fg_yellow_expr << color_end_expr;
     return stream;
 }
 std::ostream& blue(std::ostream& stream) {
-    stream << CSI_expr << fg_blue_expr << SGR::color_end_expr;
+    stream << CSI_expr << fg_blue_expr << color_end_expr;
     return stream;
 }
 std::ostream& magenta(std::ostream& stream) {
-    stream << CSI_expr << fg_magenta_expr << SGR::color_end_expr;
+    stream << CSI_expr << fg_magenta_expr << color_end_expr;
     return stream;
 }
 std::ostream& cyan(std::ostream& stream) {
-    stream << CSI_expr << fg_cyan_expr << SGR::color_end_expr;
+    stream << CSI_expr << fg_cyan_expr << color_end_expr;
     return stream;
 }
 std::ostream& white(std::ostream& stream) {
-    stream << CSI_expr << fg_white_expr << SGR::color_end_expr;
+    stream << CSI_expr << fg_white_expr << color_end_expr;
     return stream;
 }
 
 namespace background {
 std::ostream& black(std::ostream& stream) {
-    stream << CSI_expr << bg_black_expr << SGR::color_end_expr;
+    stream << CSI_expr << bg_black_expr << color_end_expr;
     return stream;
 }
 std::ostream& red(std::ostream& stream) {
-    stream << CSI_expr << bg_red_expr << SGR::color_end_expr;
+    stream << CSI_expr << bg_red_expr << color_end_expr;
     return stream;
 }
 std::ostream& green(std::ostream& stream) {
-    stream << CSI_expr << bg_green_expr << SGR::color_end_expr;
+    stream << CSI_expr << bg_green_expr << color_end_expr;
     return stream;
 }
 std::ostream& yellow(std::ostream& stream) {
-    stream << CSI_expr << bg_yellow_expr << SGR::color_end_expr;
+    stream << CSI_expr << bg_yellow_expr << color_end_expr;
     return stream;
 }
 std::ostream& blue(std::ostream& stream) {
-    stream << CSI_expr << bg_blue_expr << SGR::color_end_expr;
+    stream << CSI_expr << bg_blue_expr << color_end_expr;
     return stream;
 }
 std::ostream& magenta(std::ostream& stream) {
-    stream << CSI_expr << bg_magenta_expr << SGR::color_end_expr;
+    stream << CSI_expr << bg_magenta_expr << color_end_expr;
     return stream;
 }
 std::ostream& cyan(std::ostream& stream) {
-    stream << CSI_expr << bg_cyan_expr << SGR::color_end_expr;
+    stream << CSI_expr << bg_cyan_expr << color_end_expr;
     return stream;
 }
 std::ostream& white(std::ostream& stream) {
-    stream << CSI_expr << bg_white_expr << SGR::color_end_expr;
+    stream << CSI_expr << bg_white_expr << color_end_expr;
     return stream;
 }
 }  // namespace background
 namespace bright {
 std::ostream& black(std::ostream& stream) {
-    stream << CSI_expr << b_fg_black_expr << SGR::color_end_expr;
+    stream << CSI_expr << b_fg_black_expr << color_end_expr;
     return stream;
 }
 std::ostream& red(std::ostream& stream) {
-    stream << CSI_expr << b_fg_red_expr << SGR::color_end_expr;
+    stream << CSI_expr << b_fg_red_expr << color_end_expr;
     return stream;
 }
 std::ostream& green(std::ostream& stream) {
-    stream << CSI_expr << b_fg_green_expr << SGR::color_end_expr;
+    stream << CSI_expr << b_fg_green_expr << color_end_expr;
     return stream;
 }
 std::ostream& yellow(std::ostream& stream) {
-    stream << CSI_expr << b_fg_yellow_expr << SGR::color_end_expr;
+    stream << CSI_expr << b_fg_yellow_expr << color_end_expr;
     return stream;
 }
 std::ostream& blue(std::ostream& stream) {
-    stream << CSI_expr << b_fg_blue_expr << SGR::color_end_expr;
+    stream << CSI_expr << b_fg_blue_expr << color_end_expr;
     return stream;
 }
 std::ostream& magenta(std::ostream& stream) {
-    stream << CSI_expr << b_fg_magenta_expr << SGR::color_end_expr;
+    stream << CSI_expr << b_fg_magenta_expr << color_end_expr;
     return stream;
 }
 std::ostream& cyan(std::ostream& stream) {
-    stream << CSI_expr << b_fg_cyan_expr << SGR::color_end_expr;
+    stream << CSI_expr << b_fg_cyan_expr << color_end_expr;
     return stream;
 }
 std::ostream& white(std::ostream& stream) {
-    stream << CSI_expr << b_fg_white_expr << SGR::color_end_expr;
+    stream << CSI_expr << b_fg_white_expr << color_end_expr;
     return stream;
 }
 
 namespace background {
 std::ostream& black(std::ostream& stream) {
-    stream << CSI_expr << b_bg_black_expr << SGR::color_end_expr;
+    stream << CSI_expr << b_bg_black_expr << color_end_expr;
     return stream;
 }
 std::ostream& red(std::ostream& stream) {
-    stream << CSI_expr << b_bg_red_expr << SGR::color_end_expr;
+    stream << CSI_expr << b_bg_red_expr << color_end_expr;
     return stream;
 }
 std::ostream& green(std::ostream& stream) {
-    stream << CSI_expr << b_bg_green_expr << SGR::color_end_expr;
+    stream << CSI_expr << b_bg_green_expr << color_end_expr;
     return stream;
 }
 std::ostream& yellow(std::ostream& stream) {
-    stream << CSI_expr << b_bg_yellow_expr << SGR::color_end_expr;
+    stream << CSI_expr << b_bg_yellow_expr << color_end_expr;
     return stream;
 }
 std::ostream& blue(std::ostream& stream) {
-    stream << CSI_expr << b_bg_blue_expr << SGR::color_end_expr;
+    stream << CSI_expr << b_bg_blue_expr << color_end_expr;
     return stream;
 }
 std::ostream& magenta(std::ostream& stream) {
-    stream << CSI_expr << b_bg_magenta_expr << SGR::color_end_expr;
+    stream << CSI_expr << b_bg_magenta_expr << color_end_expr;
     return stream;
 }
 std::ostream& cyan(std::ostream& stream) {
-    stream << CSI_expr << b_bg_cyan_expr << SGR::color_end_expr;
+    stream << CSI_expr << b_bg_cyan_expr << color_end_expr;
     return stream;
 }
 std::ostream& white(std::ostream& stream) {
-    stream << CSI_expr << b_bg_white_expr << SGR::color_end_expr;
+    stream << CSI_expr << b_bg_white_expr << color_end_expr;
     return stream;
 }
 }  // namespace background
@@ -383,7 +392,7 @@ manipulator::smanipiii foreground(const int r, const int g, const int b) {
     auto h = [](std::ostream& s, const int r, const int g,
                 const int b) -> std::ostream& {
         s << CSI_expr << foreground_8bit_expr << 16 + 36 * r + 6 * g + b
-          << SGR::color_end_expr;
+          << color_end_expr;
         return s;
     };
     return manipulator::smanipiii(h, r, g, b);
@@ -393,7 +402,7 @@ manipulator::smanipiii background(const int r, const int g, const int b) {
     auto h = [](std::ostream& s, const int r, const int g,
                 const int b) -> std::ostream& {
         s << CSI_expr << background_8bit_expr << 16 + 36 * r + 6 * g + b
-          << SGR::color_end_expr;
+          << color_end_expr;
         return s;
     };
     return manipulator::smanipiii(h, r, g, b);
@@ -404,7 +413,7 @@ namespace grey {
 manipulator::smanip foreground(const int n) {
     // @todo: assert 0 <= n <= 23
     auto h = [](std::ostream& s, const int x) -> std::ostream& {
-        s << CSI_expr << foreground_8bit_expr << 255 - x << SGR::color_end_expr;
+        s << CSI_expr << foreground_8bit_expr << 255 - x << color_end_expr;
         return s;
     };
     return manipulator::smanip(h, n);
@@ -412,7 +421,7 @@ manipulator::smanip foreground(const int n) {
 manipulator::smanip background(const int n) {
     // @todo: assert 0 <= n <= 23
     auto h = [](std::ostream& s, const int x) -> std::ostream& {
-        s << CSI_expr << background_8bit_expr << 255 - x << SGR::color_end_expr;
+        s << CSI_expr << background_8bit_expr << 255 - x << color_end_expr;
         return s;
     };
     return manipulator::smanip(h, n);
@@ -433,7 +442,7 @@ manipulator::smanipiii foreground(const int r, const int g, const int b) {
     auto h = [](std::ostream& s, const int r, const int g,
                 const int b) -> std::ostream& {
         s << CSI_expr << foreground_24bit_expr << r << ";" << g << ";" << b
-          << SGR::color_end_expr;
+          << color_end_expr;
         return s;
     };
     return manipulator::smanipiii(h, r, g, b);
@@ -443,7 +452,7 @@ manipulator::smanipiii background(const int r, const int g, const int b) {
     auto h = [](std::ostream& s, const int r, const int g,
                 const int b) -> std::ostream& {
         s << CSI_expr << background_24bit_expr << r << ";" << g << ";" << b
-          << SGR::color_end_expr;
+          << color_end_expr;
         return s;
     };
     return manipulator::smanipiii(h, r, g, b);
