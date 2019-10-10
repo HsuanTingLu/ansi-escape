@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2019  Hsuan-Ting Lu <hsuan.ting.lu.ee05@g2.nctu.edu.tw>
  *
- * Wrap 24-bit true color codes within general output streams
+ * Wrap 8-bit color codes within general output streams
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,39 +18,57 @@
  *
  */
 
-#include "truecolor.hpp"
+#include "color256.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 
-namespace truecolor {
-namespace {  // 24-bit, true color
-constexpr const char* foreground_24bit_expr = "38;2;";
-constexpr const char* background_24bit_expr = "48;2;";
+namespace color256 {
+namespace {  // 8-bit, 256 colors
+constexpr const char* foreground_8bit_expr = "38;5;";
+constexpr const char* background_8bit_expr = "48;5;";
 }  // anonymous namespace
-
 namespace RGB {
 manipulator::smanipiii foreground(const int r, const int g, const int b) {
-    // @todo: assert 0 <= r,g,b <= 255
+    // @todo: assert 0 <= r,g,b <= 5
     auto h = [](std::ostream& s, const int r, const int g,
                 const int b) -> std::ostream& {
-        s << CSI_expr << foreground_24bit_expr << r << ";" << g << ";" << b
-          << color_end_expr;
+        s << CSI_expr << foreground_8bit_expr << 16 + 36 * r + 6 * g + b
+          << end_expr;
         return s;
     };
     return manipulator::smanipiii(h, r, g, b);
 }
 manipulator::smanipiii background(const int r, const int g, const int b) {
-    // @todo: assert 0 <= r,g,b <= 255
+    // @todo: assert 0 <= r,g,b <= 5
     auto h = [](std::ostream& s, const int r, const int g,
                 const int b) -> std::ostream& {
-        s << CSI_expr << background_24bit_expr << r << ";" << g << ";" << b
-          << color_end_expr;
+        s << CSI_expr << background_8bit_expr << 16 + 36 * r + 6 * g + b
+          << end_expr;
         return s;
     };
     return manipulator::smanipiii(h, r, g, b);
 }
 }  // namespace RGB
 
-}  // namespace truecolor
+namespace grey {
+manipulator::smanip foreground(const int n) {
+    // @todo: assert 0 <= n <= 23
+    auto h = [](std::ostream& s, const int x) -> std::ostream& {
+        s << CSI_expr << foreground_8bit_expr << 255 - x << end_expr;
+        return s;
+    };
+    return manipulator::smanip(h, n);
+}
+manipulator::smanip background(const int n) {
+    // @todo: assert 0 <= n <= 23
+    auto h = [](std::ostream& s, const int x) -> std::ostream& {
+        s << CSI_expr << background_8bit_expr << 255 - x << end_expr;
+        return s;
+    };
+    return manipulator::smanip(h, n);
+}
+}  // namespace grey
+
+}  // namespace color256
 
 }  // namespace aesc

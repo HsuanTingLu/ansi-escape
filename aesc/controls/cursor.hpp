@@ -18,11 +18,11 @@
  *
  */
 
-#ifndef AESC_CURSOR_HPP_
-#define AESC_CURSOR_HPP_
+#ifndef AESC_CONTROLS_CURSOR_HPP_
+#define AESC_CONTROLS_CURSOR_HPP_
 
-#include "aesc.hpp"  // @todo: hide the global constexprs
-#include "manipulator.hpp"
+#include "../base/common.hpp"
+#include "../base/manipulator.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 

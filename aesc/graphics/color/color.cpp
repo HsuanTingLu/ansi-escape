@@ -63,137 +63,137 @@ constexpr const char* b_bg_white_expr = "107";
 }  // anonymous namespace
 
 std::ostream& black(std::ostream& stream) {
-    stream << CSI_expr << fg_black_expr << color_end_expr;
+    stream << CSI_expr << fg_black_expr << end_expr;
     return stream;
 }
 std::ostream& red(std::ostream& stream) {
-    stream << CSI_expr << fg_red_expr << color_end_expr;
+    stream << CSI_expr << fg_red_expr << end_expr;
     return stream;
 }
 std::ostream& green(std::ostream& stream) {
-    stream << CSI_expr << fg_green_expr << color_end_expr;
+    stream << CSI_expr << fg_green_expr << end_expr;
     return stream;
 }
 std::ostream& yellow(std::ostream& stream) {
-    stream << CSI_expr << fg_yellow_expr << color_end_expr;
+    stream << CSI_expr << fg_yellow_expr << end_expr;
     return stream;
 }
 std::ostream& blue(std::ostream& stream) {
-    stream << CSI_expr << fg_blue_expr << color_end_expr;
+    stream << CSI_expr << fg_blue_expr << end_expr;
     return stream;
 }
 std::ostream& magenta(std::ostream& stream) {
-    stream << CSI_expr << fg_magenta_expr << color_end_expr;
+    stream << CSI_expr << fg_magenta_expr << end_expr;
     return stream;
 }
 std::ostream& cyan(std::ostream& stream) {
-    stream << CSI_expr << fg_cyan_expr << color_end_expr;
+    stream << CSI_expr << fg_cyan_expr << end_expr;
     return stream;
 }
 std::ostream& white(std::ostream& stream) {
-    stream << CSI_expr << fg_white_expr << color_end_expr;
+    stream << CSI_expr << fg_white_expr << end_expr;
     return stream;
 }
 
 namespace background {
 std::ostream& black(std::ostream& stream) {
-    stream << CSI_expr << bg_black_expr << color_end_expr;
+    stream << CSI_expr << bg_black_expr << end_expr;
     return stream;
 }
 std::ostream& red(std::ostream& stream) {
-    stream << CSI_expr << bg_red_expr << color_end_expr;
+    stream << CSI_expr << bg_red_expr << end_expr;
     return stream;
 }
 std::ostream& green(std::ostream& stream) {
-    stream << CSI_expr << bg_green_expr << color_end_expr;
+    stream << CSI_expr << bg_green_expr << end_expr;
     return stream;
 }
 std::ostream& yellow(std::ostream& stream) {
-    stream << CSI_expr << bg_yellow_expr << color_end_expr;
+    stream << CSI_expr << bg_yellow_expr << end_expr;
     return stream;
 }
 std::ostream& blue(std::ostream& stream) {
-    stream << CSI_expr << bg_blue_expr << color_end_expr;
+    stream << CSI_expr << bg_blue_expr << end_expr;
     return stream;
 }
 std::ostream& magenta(std::ostream& stream) {
-    stream << CSI_expr << bg_magenta_expr << color_end_expr;
+    stream << CSI_expr << bg_magenta_expr << end_expr;
     return stream;
 }
 std::ostream& cyan(std::ostream& stream) {
-    stream << CSI_expr << bg_cyan_expr << color_end_expr;
+    stream << CSI_expr << bg_cyan_expr << end_expr;
     return stream;
 }
 std::ostream& white(std::ostream& stream) {
-    stream << CSI_expr << bg_white_expr << color_end_expr;
+    stream << CSI_expr << bg_white_expr << end_expr;
     return stream;
 }
 }  // namespace background
 namespace bright {
 std::ostream& black(std::ostream& stream) {
-    stream << CSI_expr << b_fg_black_expr << color_end_expr;
+    stream << CSI_expr << b_fg_black_expr << end_expr;
     return stream;
 }
 std::ostream& red(std::ostream& stream) {
-    stream << CSI_expr << b_fg_red_expr << color_end_expr;
+    stream << CSI_expr << b_fg_red_expr << end_expr;
     return stream;
 }
 std::ostream& green(std::ostream& stream) {
-    stream << CSI_expr << b_fg_green_expr << color_end_expr;
+    stream << CSI_expr << b_fg_green_expr << end_expr;
     return stream;
 }
 std::ostream& yellow(std::ostream& stream) {
-    stream << CSI_expr << b_fg_yellow_expr << color_end_expr;
+    stream << CSI_expr << b_fg_yellow_expr << end_expr;
     return stream;
 }
 std::ostream& blue(std::ostream& stream) {
-    stream << CSI_expr << b_fg_blue_expr << color_end_expr;
+    stream << CSI_expr << b_fg_blue_expr << end_expr;
     return stream;
 }
 std::ostream& magenta(std::ostream& stream) {
-    stream << CSI_expr << b_fg_magenta_expr << color_end_expr;
+    stream << CSI_expr << b_fg_magenta_expr << end_expr;
     return stream;
 }
 std::ostream& cyan(std::ostream& stream) {
-    stream << CSI_expr << b_fg_cyan_expr << color_end_expr;
+    stream << CSI_expr << b_fg_cyan_expr << end_expr;
     return stream;
 }
 std::ostream& white(std::ostream& stream) {
-    stream << CSI_expr << b_fg_white_expr << color_end_expr;
+    stream << CSI_expr << b_fg_white_expr << end_expr;
     return stream;
 }
 
 namespace background {
 std::ostream& black(std::ostream& stream) {
-    stream << CSI_expr << b_bg_black_expr << color_end_expr;
+    stream << CSI_expr << b_bg_black_expr << end_expr;
     return stream;
 }
 std::ostream& red(std::ostream& stream) {
-    stream << CSI_expr << b_bg_red_expr << color_end_expr;
+    stream << CSI_expr << b_bg_red_expr << end_expr;
     return stream;
 }
 std::ostream& green(std::ostream& stream) {
-    stream << CSI_expr << b_bg_green_expr << color_end_expr;
+    stream << CSI_expr << b_bg_green_expr << end_expr;
     return stream;
 }
 std::ostream& yellow(std::ostream& stream) {
-    stream << CSI_expr << b_bg_yellow_expr << color_end_expr;
+    stream << CSI_expr << b_bg_yellow_expr << end_expr;
     return stream;
 }
 std::ostream& blue(std::ostream& stream) {
-    stream << CSI_expr << b_bg_blue_expr << color_end_expr;
+    stream << CSI_expr << b_bg_blue_expr << end_expr;
     return stream;
 }
 std::ostream& magenta(std::ostream& stream) {
-    stream << CSI_expr << b_bg_magenta_expr << color_end_expr;
+    stream << CSI_expr << b_bg_magenta_expr << end_expr;
     return stream;
 }
 std::ostream& cyan(std::ostream& stream) {
-    stream << CSI_expr << b_bg_cyan_expr << color_end_expr;
+    stream << CSI_expr << b_bg_cyan_expr << end_expr;
     return stream;
 }
 std::ostream& white(std::ostream& stream) {
-    stream << CSI_expr << b_bg_white_expr << color_end_expr;
+    stream << CSI_expr << b_bg_white_expr << end_expr;
     return stream;
 }
 }  // namespace background

@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef AESC_MANIPULATOR_HPP_
-#define AESC_MANIPULATOR_HPP_
+#ifndef AESC_BASE_MANIPULATOR_HPP_
+#define AESC_BASE_MANIPULATOR_HPP_
 
 #include <iostream>
 

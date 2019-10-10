@@ -18,11 +18,12 @@
  *
  */
 
-#ifndef AESC_SGR_HPP_
-#define AESC_SGR_HPP_
+#ifndef AESC_GRAPHICS_SGR_HPP_
+#define AESC_GRAPHICS_SGR_HPP_
 
 #include <iostream>
-#include "aesc.hpp"
+#include "../base/common.hpp"
+#include "internal/common.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 

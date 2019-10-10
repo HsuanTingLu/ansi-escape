@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2019  Hsuan-Ting Lu <hsuan.ting.lu.ee05@g2.nctu.edu.tw>
  *
- * Wrap 24-bit true color codes within general output streams
+ * Some common codes that all sequences use
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,26 +18,12 @@
  *
  */
 
-#ifndef AESC_COLOR_TRUECOLOR_HPP_
-#define AESC_COLOR_TRUECOLOR_HPP_
+#ifndef AESC_MANIPULATOR_COMMON_HPP_
+#define AESC_MANIPULATOR_COMMON_HPP_
 
-#include <iostream>
-#include "../aesc.hpp"
-#include "../manipulator.hpp"
-
-namespace aesc {  // Ansi Escape Terminal
-
-namespace truecolor {
-
-namespace RGB {
-manipulator::smanipiii foreground(const int r = 0, const int g = 0,
-                                  const int b = 0);
-manipulator::smanipiii background(const int r = 0, const int g = 0,
-                                  const int b = 0);
-}  // namespace RGB
-
-}  // namespace truecolor
-
+namespace aesc {
+// Control Sequence Introducer
+constexpr const char* CSI_expr = "\033[";
 }  // namespace aesc
 
 #endif
