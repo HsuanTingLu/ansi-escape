@@ -22,16 +22,6 @@
 
 namespace aesc {
 
-namespace manipulator {
-smanip::smanip(std::ostream& (*ff)(std::ostream&, const int), const int ii)
-    : f{ff}, i{ii} {}
-
-smanipiii::smanipiii(std::ostream& (*ff)(std::ostream&, const int, const int,
-                                         const int),
-                     const int i1, const int i2, const int i3)
-    : f{ff}, i1{i1}, i2{i2}, i3{i3} {}
-}  // namespace manipulator
-
 namespace {
 // Control Sequence Introducer
 constexpr const char* CSI_expr = "\033[";

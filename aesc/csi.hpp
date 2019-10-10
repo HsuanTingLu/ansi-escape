@@ -22,56 +22,9 @@
 #define AESC_CSI_HPP_
 
 #include <iostream>
+#include "manipulator.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
-
-namespace manipulator {  // for stream manipulators that needs arguments
-
-class smanip {
-    // manipulator that takes a single int as argument
-    template <typename CharT, typename Traits>
-    friend std::basic_ostream<CharT, Traits>& operator<<(
-        std::basic_ostream<CharT, Traits>&, const smanip&);
-
-   public:
-    smanip(std::ostream& (*ff)(std::ostream&, const int), const int ii);
-
-   private:
-    std::ostream& (*f)(std::ostream&, const int);  // function to be called
-    const int i;  // value to be used as argument
-};
-template <typename CharT, typename Traits>
-std::basic_ostream<CharT, Traits>& operator<<(
-    std::basic_ostream<CharT, Traits>& os, const smanip& m) {
-    m.f(os, m.i);  // call m’s function with m’s stored value i
-    return os;
-}
-
-class smanipiii {  // manipulator that takes triple ints as arguments
-    template <typename CharT, typename Traits>
-    friend std::basic_ostream<CharT, Traits>& operator<<(
-        std::basic_ostream<CharT, Traits>&, const smanipiii&);
-
-   public:
-    smanipiii(std::ostream& (*ff)(std::ostream&, const int, const int,
-                                  const int),
-              const int i1, const int i2, const int i3);
-
-   private:
-    std::ostream& (*f)(std::ostream&, const int, const int,
-                       const int);  // function to be called
-    // values to be used as argument
-    const int i1;
-    const int i2;
-    const int i3;
-};
-template <typename CharT, typename Traits>
-std::basic_ostream<CharT, Traits>& operator<<(
-    std::basic_ostream<CharT, Traits>& os, const smanipiii& m) {
-    m.f(os, m.i1, m.i2, m.i3);  // call m’s function with m’s stored value i
-    return os;
-}
-}  // namespace manipulator
 
 namespace cursor {
 enum class clear : int { to_end = 0, to_beginning = 1, entire = 2 };
