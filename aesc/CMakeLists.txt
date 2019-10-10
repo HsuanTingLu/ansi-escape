@@ -17,7 +17,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-add_library(aesc STATIC aesc.hpp)
+add_library(aesc SHARED aesc.hpp)
 
 add_subdirectory(base)
 add_subdirectory(controls)
