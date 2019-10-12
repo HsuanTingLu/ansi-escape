@@ -24,7 +24,7 @@ add_subdirectory(controls)
 add_subdirectory(graphics)
 
 target_compile_features(aesc
-    PUBLIC
+    PRIVATE
         cxx_std_11
         cxx_auto_type
         cxx_constexpr
@@ -43,3 +43,6 @@ target_compile_options(aesc
         -pedantic
         -Werror
 )
+
+include(GenerateExportHeader)
+generate_export_header(aesc)

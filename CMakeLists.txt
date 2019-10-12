@@ -41,11 +41,8 @@ list(APPEND CMAKE_MODULE_PATH
     ${CMAKE_CURRENT_LIST_DIR}/CMake
 )
 
-include(CheckCXXCompilerFlag)
 include(CMakeDependentOption)
 include(CMakePrintHelpers)
-include(CMakePackageConfigHelpers)
-include(WriteCompilerDetectionHeader)
 
 
 ##
