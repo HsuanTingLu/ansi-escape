@@ -1,39 +1,21 @@
 [alias]
 
-[build]
-
 [color]
     ui = true
 
 [cxx]
-    cflags   = -std=gnu11 -Wall -Wextra -pedantic -Werror
-    cxxflags = -std=c++11 -Wall -Wextra -pedantic -Werror
-    host_platform = macosx-x86_64
-    gtest_dep     = //tests/gtest:gtest
+    # C compiler and preprocessor flags
+    cflags   = -Wall --std=c11
+    # C++ compiler and preprocessor flags
+    cxxflags = -Wall --std=c++11
 
-# Bleeding edge compile settings
-<file:bleeding-edge/bleeding-edge.include>
+[cxx#debug]
+    cflags   = -Wall -Wextra -pedantic --std=c11   -O0 -g
+    cxxflags = -Wall -Wextra -pedantic --std=c++11 -O0 -g
 
-[httpserver]
-    port = 0
-
-[parser]
-    python_interpreter = /usr/local/bin/python3
-
-[python]
-    interpreter = /usr/local/bin/python3
-
-[project]
-    glob_handler = watchman
-    ignore = .git, .vscode, CMake
-    motd = "DO NOT BREAK THE BUILD"
+[cxx#bleeding-edge]
+    cflags   = -Wall -Wextra -pedantic --std=c17
+    cxxflags = -Wall -Wextra -pedantic --std=c++17
 
 [repositories]
     aesc = .
-
-[resources]
-
-[sandbox]
-    darwin_sandbox_enabled = true
-    genrule_sandbox_enabled = true
-

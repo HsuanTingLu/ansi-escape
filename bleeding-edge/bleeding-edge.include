@@ -1,5 +1,0 @@
-[cxx#bleeding]
-    linker_platform   = DARWIN
-    archiver_platform = MACOS
-    cflags   = -std=gnu17 -Wall -Wextra -pedantic -Werror
-    cxxflags = -std=gnu++2a -Wall -Wextra -pedantic -Werror
