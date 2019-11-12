@@ -17,7 +17,12 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-add_library(aesc SHARED aesc.hpp)
+add_library(aesc SHARED)
+
+target_sources(aesc
+    INTERFACE
+        aesc.hpp
+)
 
 add_subdirectory(internal)
 add_subdirectory(control)
@@ -25,7 +30,7 @@ add_subdirectory(render)
 
 target_include_directories(aesc
     PUBLIC
-        ${PROJECT_SOURCE_DIR}/aesc
+        ${PROJECT_SOURCE_DIR}
 )
 
 target_compile_features(aesc
@@ -42,6 +47,27 @@ target_compile_options(aesc
         -Wextra
         -pedantic
         -Werror
+)
+
+install(TARGETS aesc DESTINATION lib)
+install(
+    FILES aesc.hpp
+    DESTINATION include
+)
+install(
+    FILES control/cursor.hpp
+    DESTINATION include/aesc/control
+)
+install(
+    FILES internal/manipulator.hpp
+    DESTINATION include/aesc/internal
+)
+install(
+    FILES render/render.hpp
+          render/color.hpp
+          render/color256.hpp
+          render/truecolor.hpp
+    DESTINATION include/aesc/render
 )
 
 #TODO: include(GenerateExportHeader)

@@ -18,10 +18,10 @@
  *
  */
 
-#include "render/truecolor.hpp"
+#include "aesc/render/truecolor.hpp"
 
-#include "internal/sequences.hpp"
-#include "render/internal.hpp"
+#include "aesc/internal/sequences.hpp"
+#include "aesc/render/internal.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 

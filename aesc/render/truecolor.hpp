@@ -23,7 +23,7 @@
 
 #include <iostream>
 
-#include "internal/manipulator.hpp"
+#include "aesc/internal/manipulator.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 

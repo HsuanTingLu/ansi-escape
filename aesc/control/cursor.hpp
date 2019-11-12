@@ -21,7 +21,7 @@
 #ifndef AESC_CONTROL_CURSOR_HPP_
 #define AESC_CONTROL_CURSOR_HPP_
 
-#include "internal/manipulator.hpp"
+#include "aesc/internal/manipulator.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 

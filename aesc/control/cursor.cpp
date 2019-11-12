@@ -18,9 +18,9 @@
  *
  */
 
-#include "control/cursor.hpp"
+#include "aesc/control/cursor.hpp"
 
-#include "internal/sequences.hpp"
+#include "aesc/internal/sequences.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 

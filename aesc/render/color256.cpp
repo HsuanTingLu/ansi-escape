@@ -18,10 +18,10 @@
  *
  */
 
-#include "render/color256.hpp"
+#include "aesc/render/color256.hpp"
 
-#include "internal/sequences.hpp"
-#include "render/internal.hpp"
+#include "aesc/internal/sequences.hpp"
+#include "aesc/render/internal.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 
