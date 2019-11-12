@@ -22,7 +22,7 @@ namespaces are underlined and functions are not
     - EL
     - save\_pos
     - restore\_pos
-- <ins>SGR</ins>:
+- <ins>render</ins>:
     - reset
     - bold
     - faint
@@ -85,4 +85,3 @@ namespaces are underlined and functions are not
     - <ins>RGB</ins>:
         - foreground
         - background
-
