@@ -18,12 +18,10 @@
  *
  */
 
-#ifndef AESC_GRAPHICS_COLOR_COLOR_HPP_
-#define AESC_GRAPHICS_COLOR_COLOR_HPP_
+#ifndef AESC_RENDER_COLOR_HPP_
+#define AESC_RENDER_COLOR_HPP_
 
 #include <iostream>
-#include "../../base/common.hpp"
-#include "../internal/common.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 
@@ -75,4 +73,4 @@ std::ostream& white(std::ostream& stream);
 
 }  // namespace aesc
 
-#endif
+#endif  // AESC_RENDER_COLOR_HPP_

@@ -19,5 +19,7 @@
 
 target_sources(aesc
     PRIVATE
-        ${CMAKE_CURRENT_SOURCE_DIR}/cursor
+        manipulator.hpp
+        manipulator.cpp
+        sequences.hpp
 )

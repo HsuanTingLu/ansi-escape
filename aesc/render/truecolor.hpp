@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2019  Hsuan-Ting Lu <hsuan.ting.lu.ee05@g2.nctu.edu.tw>
  *
- * Manipulators of general output streams that take one or three arguments
+ * Wrap 24-bit true color codes within general output streams
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,19 +18,26 @@
  *
  */
 
-#include "manipulator.hpp"
+#ifndef AESC_RENDER_TRUECOLOR_HPP_
+#define AESC_RENDER_TRUECOLOR_HPP_
+
+#include <iostream>
+
+#include "aesc/internal/manipulator.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 
-namespace manipulator {
-smanip::smanip(std::ostream& (*ff)(std::ostream&, const int), const int ii)
-    : f{ff}, i{ii} {}
+namespace truecolor {
 
-smanipiii::smanipiii(std::ostream& (*ff)(std::ostream&, const int, const int,
-                                         const int),
-                     const int i1, const int i2, const int i3)
-    : f{ff}, i1{i1}, i2{i2}, i3{i3} {}
+namespace RGB {
+manipulator::smanipiii foreground(const int r = 0, const int g = 0,
+                                  const int b = 0);
+manipulator::smanipiii background(const int r = 0, const int g = 0,
+                                  const int b = 0);
+}  // namespace RGB
 
-}  // namespace manipulator
+}  // namespace truecolor
 
 }  // namespace aesc
+
+#endif  // AESC_RENDER_TRUECOLOR_HPP_

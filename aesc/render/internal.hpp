@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2019  Hsuan-Ting Lu <hsuan.ting.lu.ee05@g2.nctu.edu.tw>
  *
- * Some common codes that all color-sub-libraries use
+ * Defines symbols that render-modules shares
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,16 +18,16 @@
  *
  */
 
-#ifndef AESC_GRAPHICS_COLOR_INTERNAL_COMMON_HPP_
-#define AESC_GRAPHICS_COLOR_INTERNAL_COMMON_HPP_
+#ifndef AESC_RENDER_INTERNAL_HPP_
+#define AESC_RENDER_INTERNAL_HPP_
 
 namespace aesc {
 
+// Ending token
 constexpr const char* end_expr = "m";
-/*
- * sequence of parameters are seperated with semicolons ';'
+/* sequence of parameters are seperated with semicolons ';'
  */
 
 }  // namespace aesc
 
-#endif
+#endif  // AESC_RENDER_INTERNAL_HPP_

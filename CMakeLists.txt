@@ -19,16 +19,16 @@
 
 # Most widely used distributions have cmake 3.5 or greater available as of March
 # 2019.
-cmake_minimum_required(VERSION 3.5)
+cmake_minimum_required(VERSION 3.15)
 
 # Compiler id for Apple Clang is now AppleClang.
-cmake_policy(SET CMP0025 NEW)
-# TODO: @todo: if CMAKE version at least 3.9
-cmake_policy(SET CMP0069 NEW)
+#cmake_policy(SET CMP0025 NEW)
+#cmake_policy(SET CMP0069 NEW)
+#cmake_policy(SET CMP0079 NEW)
 
 project(aesc LANGUAGES CXX)
 
-# when aesc is included as subproject (i.e. using add_subdirectory(ansi-escape))
+# when aesc is included as subproject (i.e. using add_subdirectory(aesc))
 # in the source tree of a project that uses it, install rules are disabled.
 if(NOT "^${CMAKE_SOURCE_DIR}$" STREQUAL "^${PROJECT_SOURCE_DIR}$")
     set(AESC_ENABLE_INSTALL FALSE)
@@ -36,13 +36,8 @@ else()
     set(AESC_ENABLE_INSTALL TRUE)
 endif()
 
-# compiler options
-list(APPEND CMAKE_MODULE_PATH
-    ${CMAKE_CURRENT_LIST_DIR}/CMake
-)
-
-include(CMakeDependentOption)
-include(CMakePrintHelpers)
+#include(CMakeDependentOption)
+#include(CMakePrintHelpers)
 
 
 ##
@@ -55,17 +50,11 @@ include(CMakePrintHelpers)
 # include current path
 #list(APPEND AESC_COMMON_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR})
 
-if("${CMAKE_CXX_COMPILER_ID}" MATCHES "Clang")
-    set(AESC_USING_CLANG ON)
-else()
-    set(AESC_USING_CLANG OFF)
-endif()
-
 # find dependencies
 # find_package(xxx REQUIRED)
 
 add_subdirectory(aesc)
-add_subdirectory(test EXCLUDE_FROM_ALL)
+add_subdirectory(examples EXCLUDE_FROM_ALL)
 
 if(AESC_ENABLE_INSTALL)
 

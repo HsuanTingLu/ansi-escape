@@ -18,16 +18,14 @@
  *
  */
 
-#ifndef AESC_GRAPHICS_SGR_HPP_
-#define AESC_GRAPHICS_SGR_HPP_
+#ifndef AESC_RENDER_RENDER_HPP_
+#define AESC_RENDER_RENDER_HPP_
 
 #include <iostream>
-#include "../base/common.hpp"
-#include "internal/common.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 
-namespace SGR {  // Select Graphic Rendition
+namespace render {  // Select Graphic Rendition
 
 std::ostream& reset(std::ostream& stream);
 std::ostream& bold(std::ostream& stream);   // with increased intensity
@@ -48,8 +46,8 @@ std::ostream& cancel_underline(std::ostream& stream);
 std::ostream& cancel_blink(std::ostream& stream);
 std::ostream& cancel_inverse(std::ostream& stream);
 std::ostream& cancel_cross_out(std::ostream& stream);
-}  // namespace SGR
+}  // namespace render
 
 }  // namespace aesc
 
-#endif
+#endif  // AESC_RENDER_RENDER_HPP_

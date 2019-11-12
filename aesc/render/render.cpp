@@ -18,11 +18,14 @@
  *
  */
 
-#include "SGR.hpp"
+#include "aesc/render/render.hpp"
+
+#include "aesc/internal/sequences.hpp"
+#include "aesc/render/internal.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 
-namespace SGR {  // Select Graphic Rendition
+namespace render {  // Select Graphic Rendition
 namespace {
 // HACK: constexpr const char* end_expr = "m";
 constexpr const char* reset_expr = "0";
@@ -102,6 +105,6 @@ std::ostream& cancel_cross_out(std::ostream& stream) {
     return stream;
 }
 
-}  // namespace SGR
+}  // namespace render
 
 }  // namespace aesc

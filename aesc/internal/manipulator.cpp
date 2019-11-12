@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2019  Hsuan-Ting Lu <hsuan.ting.lu.ee05@g2.nctu.edu.tw>
  *
- * Wrap some terminal control sequences with string streams
+ * Manipulators of general output streams that take one or three arguments
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,13 +18,19 @@
  *
  */
 
-#ifndef AESC_AESC_HPP_
-#define AESC_AESC_HPP_
+#include "aesc/internal/manipulator.hpp"
 
-#include "aesc/control/cursor.hpp"
-#include "aesc/render/color.hpp"
-#include "aesc/render/color256.hpp"
-#include "aesc/render/render.hpp"
-#include "aesc/render/truecolor.hpp"
+namespace aesc {  // Ansi Escape Terminal
 
-#endif  // AESC_AESC_HPP_
+namespace manipulator {
+smanip::smanip(std::ostream& (*ff)(std::ostream&, const int), const int ii)
+    : f{ff}, i{ii} {}
+
+smanipiii::smanipiii(std::ostream& (*ff)(std::ostream&, const int, const int,
+                                         const int),
+                     const int i1, const int i2, const int i3)
+    : f{ff}, i1{i1}, i2{i2}, i3{i3} {}
+
+}  // namespace manipulator
+
+}  // namespace aesc
