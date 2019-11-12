@@ -21,10 +21,10 @@
 #ifndef AESC_AESC_HPP_
 #define AESC_AESC_HPP_
 
-#include "controls/cursor.hpp"
-#include "graphics/SGR.hpp"
-#include "graphics/color/color.hpp"
-#include "graphics/color/color256.hpp"
-#include "graphics/color/truecolor.hpp"
+#include "control/cursor.hpp"
+#include "render/color.hpp"
+#include "render/color256.hpp"
+#include "render/render.hpp"
+#include "render/truecolor.hpp"
 
-#endif
+#endif  // AESC_AESC_HPP_

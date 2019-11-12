@@ -18,4 +18,4 @@
     cxxflags = -Wall -Wextra -pedantic --std=c++17
 
 [repositories]
-    aesc = .
+    aesc = aesc

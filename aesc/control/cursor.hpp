@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2019  Hsuan-Ting Lu <hsuan.ting.lu.ee05@g2.nctu.edu.tw>
  *
- * Wraps the cursor control sequences
+ * Wraps cursor control sequences
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,15 +18,14 @@
  *
  */
 
-#ifndef AESC_CONTROLS_CURSOR_HPP_
-#define AESC_CONTROLS_CURSOR_HPP_
+#ifndef AESC_CONTROL_CURSOR_HPP_
+#define AESC_CONTROL_CURSOR_HPP_
 
-#include "../base/common.hpp"
-#include "../base/manipulator.hpp"
+#include "internal/manipulator.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 
-namespace cursor {
+namespace cursor {  // Cursor controls
 
 enum class clear : int { to_end = 0, to_beginning = 1, entire = 2 };
 

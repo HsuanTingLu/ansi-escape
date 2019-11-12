@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2019  Hsuan-Ting Lu <hsuan.ting.lu.ee05@g2.nctu.edu.tw>
  *
- * Manipulators of general output streams that take one or three arguments
+ * Defines symbols that render-modules shares
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,19 +18,16 @@
  *
  */
 
-#include "manipulator.hpp"
+#ifndef AESC_RENDER_INTERNAL_HPP_
+#define AESC_RENDER_INTERNAL_HPP_
 
-namespace aesc {  // Ansi Escape Terminal
+namespace aesc {
 
-namespace manipulator {
-smanip::smanip(std::ostream& (*ff)(std::ostream&, const int), const int ii)
-    : f{ff}, i{ii} {}
-
-smanipiii::smanipiii(std::ostream& (*ff)(std::ostream&, const int, const int,
-                                         const int),
-                     const int i1, const int i2, const int i3)
-    : f{ff}, i1{i1}, i2{i2}, i3{i3} {}
-
-}  // namespace manipulator
+// Ending token
+constexpr const char* end_expr = "m";
+/* sequence of parameters are seperated with semicolons ';'
+ */
 
 }  // namespace aesc
+
+#endif  // AESC_RENDER_INTERNAL_HPP_

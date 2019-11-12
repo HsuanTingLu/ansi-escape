@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2019  Hsuan-Ting Lu <hsuan.ting.lu.ee05@g2.nctu.edu.tw>
  *
- * Wraps the cursor control sequences
+ * Wraps cursor control sequences
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,7 +18,9 @@
  *
  */
 
-#include "cursor.hpp"
+#include "control/cursor.hpp"
+
+#include "internal/sequences.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 

@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2019  Hsuan-Ting Lu <hsuan.ting.lu.ee05@g2.nctu.edu.tw>
  *
- * Some common codes that all sequences use
+ * Manipulators of general output streams that take one or three arguments
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,12 +18,19 @@
  *
  */
 
-#ifndef AESC_MANIPULATOR_COMMON_HPP_
-#define AESC_MANIPULATOR_COMMON_HPP_
+#include "internal/manipulator.hpp"
 
-namespace aesc {
-// Control Sequence Introducer
-constexpr const char* CSI_expr = "\033[";
+namespace aesc {  // Ansi Escape Terminal
+
+namespace manipulator {
+smanip::smanip(std::ostream& (*ff)(std::ostream&, const int), const int ii)
+    : f{ff}, i{ii} {}
+
+smanipiii::smanipiii(std::ostream& (*ff)(std::ostream&, const int, const int,
+                                         const int),
+                     const int i1, const int i2, const int i3)
+    : f{ff}, i1{i1}, i2{i2}, i3{i3} {}
+
+}  // namespace manipulator
+
 }  // namespace aesc
-
-#endif

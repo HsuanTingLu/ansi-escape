@@ -19,18 +19,18 @@
 
 add_library(aesc SHARED aesc.hpp)
 
-add_subdirectory(base)
-add_subdirectory(controls)
-add_subdirectory(graphics)
+add_subdirectory(internal)
+add_subdirectory(control)
+add_subdirectory(render)
+
+target_include_directories(aesc
+    PUBLIC
+        ${PROJECT_SOURCE_DIR}/aesc
+)
 
 target_compile_features(aesc
-    PRIVATE
+    PUBLIC
         cxx_std_11
-        cxx_auto_type
-        cxx_constexpr
-        cxx_delegating_constructors
-        cxx_inline_namespaces
-        cxx_lambdas
 )
 set_target_properties(aesc PROPERTIES
     CXX_EXTENSIONS OFF
@@ -44,5 +44,5 @@ target_compile_options(aesc
         -Werror
 )
 
-include(GenerateExportHeader)
-generate_export_header(aesc)
+#TODO: include(GenerateExportHeader)
+#TODO: generate_export_header(aesc)

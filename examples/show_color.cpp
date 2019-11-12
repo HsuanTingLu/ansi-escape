@@ -18,40 +18,40 @@
  *
  */
 #include <iostream>
-#include "../aesc/aesc.hpp"
+#include "aesc.hpp"
 
 int main() {
     std::cout << "line1" << std::endl
          << "line2" << std::endl
          << aesc::cursor::up(1) << "33" << aesc::cursor::EL(aesc::cursor::clear::entire) << "a"
          << std::endl;
-    std::cout << aesc::SGR::bold << aesc::SGR::blink::slow << " bold" << aesc::SGR::reverse_color
-         << " reversed" << aesc::SGR::reset_intensity << " reset bold"
-         << aesc::SGR::cancel_blink << " reset blink" << aesc::SGR::cancel_inverse
+    std::cout << aesc::render::bold << aesc::render::blink::slow << " bold" << aesc::render::reverse_color
+         << " reversed" << aesc::render::reset_intensity << " reset bold"
+         << aesc::render::cancel_blink << " reset blink" << aesc::render::cancel_inverse
          << " cancel reverse" << std::endl;
-    std::cout << " pre-reset" << aesc::SGR::reset << " post-reset" << std::endl;
+    std::cout << " pre-reset" << aesc::render::reset << " post-reset" << std::endl;
 
     std::cout << aesc::color::red << aesc::color::background::cyan << " bg_cyan, fg_red"
-         << aesc::SGR::reset << std::endl;
+         << aesc::render::reset << std::endl;
     std::cout << aesc::color::bright::red << aesc::color::bright::background::cyan
-         << " bright bg_cyan, bright fg_red" << aesc::SGR::reset << std::endl;
+         << " bright bg_cyan, bright fg_red" << aesc::render::reset << std::endl;
 
     std::cout << "24 level grey FOREground:" << std::endl << "start";
     for (int i = 0; i != 24; ++i) {
         std::cout << aesc::color256::grey::foreground(i) << "█";
     }
-    std::cout << aesc::SGR::reset << "done" << std::endl;
+    std::cout << aesc::render::reset << "done" << std::endl;
     std::cout << "24 level grey BACKground:" << std::endl << "start";
     for (int i = 0; i != 24; ++i) {
         std::cout << aesc::color256::grey::background(i) << " ";
     }
-    std::cout << aesc::SGR::reset << "done" << std::endl;
+    std::cout << aesc::render::reset << "done" << std::endl;
 
     std::cout << aesc::color256::RGB::foreground(2, 3, 0) << "256 color RGB test sequence"
-         << aesc::SGR::reset << std::endl;
+         << aesc::render::reset << std::endl;
 
     std::cout << aesc::truecolor::RGB::foreground(130, 250, 0)
-         << "24-bit true color RGB test sequence" << aesc::SGR::reset << std::endl;
+         << "24-bit true color RGB test sequence" << aesc::render::reset << std::endl;
 
     return 0;
 }

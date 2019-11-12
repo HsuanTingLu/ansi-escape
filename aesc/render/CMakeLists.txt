@@ -17,33 +17,17 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-add_executable(showcolor EXCLUDE_FROM_ALL show_color.cpp)
-
-target_compile_features(showcolor
+target_sources(aesc
     PUBLIC
-        cxx_std_11
-)
-set_target_properties(showcolor PROPERTIES
-    CXX_EXTENSIONS OFF
-)
+        render.hpp
+        color.hpp
+        color256.hpp
+        truecolor.hpp
 
-target_compile_options(showcolor
     PRIVATE
-        -Wall
-        -Wextra
-        -pedantic
-        -Werror
+        internal.hpp
+        render.cpp
+        color.cpp
+        color256.cpp
+        truecolor.cpp
 )
-
-# TODO: @todo: if CMAKE version at least 3.9
-# Linker optimizations
-include(CheckIPOSupported)
-check_ipo_supported(RESULT ipo_support OUTPUT ipo_out LANGUAGES CXX)
-
-if(ipo_support)
-    set_property(TARGET showcolor PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE)
-else()
-    message(WARNING "IPO is not supported: ${ipo_out}")
-endif()
-
-target_link_libraries(showcolor PRIVATE aesc)

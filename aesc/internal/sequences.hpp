@@ -1,7 +1,7 @@
 /*
  * Copyright (C) 2019  Hsuan-Ting Lu <hsuan.ting.lu.ee05@g2.nctu.edu.tw>
  *
- * Some common codes that all color-sub-libraries use
+ * Defines symbols that all modules shares
  *
  * This program is free software: you can redistribute it and/or modify
  * it under the terms of the GNU General Public License as published by
@@ -18,16 +18,14 @@
  *
  */
 
-#ifndef AESC_GRAPHICS_COLOR_INTERNAL_COMMON_HPP_
-#define AESC_GRAPHICS_COLOR_INTERNAL_COMMON_HPP_
+#ifndef AESC_INTERNAL_SEQUENCES_HPP_
+#define AESC_INTERNAL_SEQUENCES_HPP_
 
 namespace aesc {
 
-constexpr const char* end_expr = "m";
-/*
- * sequence of parameters are seperated with semicolons ';'
- */
+// Control Sequence Introducer
+constexpr const char* CSI_expr = "\033[";
 
 }  // namespace aesc
 
-#endif
+#endif  // AESC_INTERNAL_SEQUENCES_HPP_

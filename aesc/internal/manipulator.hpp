@@ -18,8 +18,8 @@
  *
  */
 
-#ifndef AESC_BASE_MANIPULATOR_HPP_
-#define AESC_BASE_MANIPULATOR_HPP_
+#ifndef AESC_INTERNAL_MANIPULATOR_HPP_
+#define AESC_INTERNAL_MANIPULATOR_HPP_
 
 #include <iostream>
 
@@ -76,4 +76,4 @@ std::basic_ostream<CharT, Traits>& operator<<(
 
 }  // namespace aesc
 
-#endif
+#endif  // AESC_INTERNAL_MANIPULATOR_HPP_
