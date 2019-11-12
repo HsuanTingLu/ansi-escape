@@ -35,7 +35,7 @@ brew install ansi-escape
 
 ### Include as a CMake package
 
-###
+exposes all APIs as within a single library
 
 <a name="build"></a>
 ## Building AESC
@@ -57,4 +57,3 @@ AESC is licensed under the terms of the . See [LICENSE](LICENSE) for more inform
 ## Links
 Projects that use Ansi-Escape
 - [cpp-logger](https://github.com/AlexFxw/cpp-logger)
-
