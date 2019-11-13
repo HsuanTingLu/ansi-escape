@@ -24,6 +24,7 @@ target_sources(aesc
         aesc.hpp
 )
 
+include(GNUInstallDirs)
 add_subdirectory(internal)
 add_subdirectory(control)
 add_subdirectory(render)
@@ -49,25 +50,27 @@ target_compile_options(aesc
         -Werror
 )
 
-install(TARGETS aesc DESTINATION lib)
+install(TARGETS aesc
+    DESTINATION ${CMAKE_INSTALL_LIBDIR}
+)
 install(
     FILES aesc.hpp
-    DESTINATION include
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}
 )
 install(
     FILES control/cursor.hpp
-    DESTINATION include/aesc/control
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/aesc/control
 )
 install(
     FILES internal/manipulator.hpp
-    DESTINATION include/aesc/internal
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/aesc/internal
 )
 install(
     FILES render/render.hpp
           render/color.hpp
           render/color256.hpp
           render/truecolor.hpp
-    DESTINATION include/aesc/render
+    DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/aesc/render
 )
 
 #TODO: include(GenerateExportHeader)
