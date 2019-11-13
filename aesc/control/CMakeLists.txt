@@ -18,8 +18,7 @@
 #
 
 target_sources(aesc
-    PUBLIC
-        cursor.hpp
     PRIVATE
+        cursor.hpp
         cursor.cpp
 )

@@ -18,13 +18,11 @@
 #
 
 target_sources(aesc
-    PUBLIC
+    PRIVATE
         render.hpp
         color.hpp
         color256.hpp
         truecolor.hpp
-
-    PRIVATE
         internal.hpp
         render.cpp
         color.cpp
