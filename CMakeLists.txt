@@ -25,6 +25,10 @@ cmake_minimum_required(VERSION 3.15)
 #cmake_policy(SET CMP0025 NEW)
 #cmake_policy(SET CMP0069 NEW)
 #cmake_policy(SET CMP0079 NEW)
+if(NOT ${UNIX})
+    message(FATAL_ERROR "library not intended for non-UNIX-like systems")
+endif()
+set(CMAKE_OSX_DEPLOYMENT_TARGET "10.15")  # Catalina
 
 project(aesc LANGUAGES CXX)
 
