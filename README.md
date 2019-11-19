@@ -30,7 +30,7 @@ Use it as a [CMake](https://cmake.org) package, or simply install it with [Homeb
 ### Install with Homebrew
 
 ```Shell
-brew tap retro-NEHS/brew
+brew tap hsuantinglu/utils
 brew install ansi-escape
 ```
 
