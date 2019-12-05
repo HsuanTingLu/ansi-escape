@@ -54,7 +54,7 @@ If you require CMake support, please check the [CMake build instructions](CMake/
 ## License
 AESC is licensed under the terms of the . See [LICENSE](LICENSE) for more information.
 
-<a name="links"</a>
+<a name="links"></a>
 ## Links
 Projects that use Ansi-Escape
 - [pbar](https://github.com/HsuanTingLu/pbar)
