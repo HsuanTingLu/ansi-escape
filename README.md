@@ -40,9 +40,7 @@ exposes all APIs as within a single library
 
 <a name="build"></a>
 ## Building AESC
-[Buck](https://buck.build) is the official build system, which is supported on most major platforms and compilers. See [quickstart](#quickstart) for more information on building Abseil using the Buck build system.
-
-If you require CMake support, please check the [CMake build instructions](CMake/README.md).
+CMake is the official build system
 
 <a name="codemap"></a>
 ## Codemap
