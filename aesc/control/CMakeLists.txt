@@ -18,8 +18,7 @@
 #
 
 target_sources(aesc
-    PUBLIC
-        cursor.hpp
     PRIVATE
-        cursor.cpp
+        ${PROJECT_SOURCE_DIR}/aesc/control/cursor.hpp
+        ${PROJECT_SOURCE_DIR}/aesc/control/cursor.cpp
 )

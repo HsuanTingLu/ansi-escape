@@ -53,5 +53,7 @@ int main() {
     std::cout << aesc::truecolor::RGB::foreground(130, 250, 0)
          << "24-bit true color RGB test sequence" << aesc::render::reset << std::endl;
 
+    std::cout << "aaaa\nbbbb\n" << aesc::cursor::up(2) << "cccc" << std::endl << aesc::cursor::down(3) << "down" << std::endl;
+
     return 0;
 }

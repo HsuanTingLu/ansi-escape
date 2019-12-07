@@ -18,16 +18,14 @@
 #
 
 target_sources(aesc
-    PUBLIC
-        render.hpp
-        color.hpp
-        color256.hpp
-        truecolor.hpp
-
     PRIVATE
-        internal.hpp
-        render.cpp
-        color.cpp
-        color256.cpp
-        truecolor.cpp
+        ${PROJECT_SOURCE_DIR}/aesc/render/render.hpp
+        ${PROJECT_SOURCE_DIR}/aesc/render/color.hpp
+        ${PROJECT_SOURCE_DIR}/aesc/render/color256.hpp
+        ${PROJECT_SOURCE_DIR}/aesc/render/truecolor.hpp
+        ${PROJECT_SOURCE_DIR}/aesc/render/internal.hpp
+        ${PROJECT_SOURCE_DIR}/aesc/render/render.cpp
+        ${PROJECT_SOURCE_DIR}/aesc/render/color.cpp
+        ${PROJECT_SOURCE_DIR}/aesc/render/color256.cpp
+        ${PROJECT_SOURCE_DIR}/aesc/render/truecolor.cpp
 )
