@@ -1,12 +1,5 @@
 # <ins>A</ins>nsi<ins>ESC</ins>ape Module Designs
 
-## Modules
-
-- [csi.h](#csi_hpp)
-
-<a name="csi_hpp"></a>
-## [CSI sequences](csi.hpp)
-
 ### Namespaces and Functions
 
 namespaces are underlined and functions are not
