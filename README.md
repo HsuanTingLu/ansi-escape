@@ -1,5 +1,6 @@
-# Ansi-Escape  ![GitHub](https://img.shields.io/github/license/hsuantinglu/ansi-escape)
-![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/HsuanTingLu/ansi-escape) ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/HsuanTingLu/ansi-escape?include_prereleases)
+# Ansi-Escape  ![GitHub](https://img.shields.io/github/license/hsuantinglu/ansi-escape) ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/HsuanTingLu/ansi-escape?include_prereleases)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/HsuanTingLu/ansi-escape)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/18170c1dd8f746328ac668d5fdfbb5c2)](https://www.codacy.com/manual/HsuanTingLu/ansi-escape?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=HsuanTingLu/ansi-escape&amp;utm_campaign=Badge_Grade)
 
 ANSI escape codes wrapped in C++ string streams.
 
@@ -29,7 +30,7 @@ Use it as a [CMake](https://cmake.org) package, or simply install it with [Homeb
 ### Install with Homebrew
 
 ```Shell
-brew tap retro-NEHS/brew
+brew tap hsuantinglu/utils
 brew install ansi-escape
 ```
 
@@ -39,9 +40,7 @@ exposes all APIs as within a single library
 
 <a name="build"></a>
 ## Building AESC
-[Buck](https://buck.build) is the official build system, which is supported on most major platforms and compilers. See [quickstart](#quickstart) for more information on building Abseil using the Buck build system.
-
-If you require CMake support, please check the [CMake build instructions](CMake/README.md).
+CMake is the official build system
 
 <a name="codemap"></a>
 ## Codemap
@@ -53,7 +52,7 @@ If you require CMake support, please check the [CMake build instructions](CMake/
 ## License
 AESC is licensed under the terms of the . See [LICENSE](LICENSE) for more information.
 
-<a name="links"</a>
+<a name="links"></a>
 ## Links
 Projects that use Ansi-Escape
-- [cpp-logger](https://github.com/AlexFxw/cpp-logger)
+- [pbar](https://github.com/HsuanTingLu/pbar)
