@@ -40,7 +40,7 @@ manipulator::smanip prev_line(const int n = 1);
 // erases from cursor to EOL if 0
 // clear from cursor to beginning if 1
 // clears entire line if 2
-manipulator::smanip EL(clear n);
+manipulator::smanip EL(const clear n);
 // Saves cursor position and state
 std::ostream& save_pos(std::ostream& stream);
 // Restores cursor position and state

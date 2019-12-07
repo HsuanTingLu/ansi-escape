@@ -21,7 +21,7 @@ add_library(aesc SHARED)
 
 target_sources(aesc
     INTERFACE
-        aesc.hpp
+        ${PROJECT_SOURCE_DIR}/aesc/aesc.hpp
 )
 
 include(GNUInstallDirs)
@@ -44,6 +44,7 @@ set_target_properties(aesc PROPERTIES
 
 target_compile_options(aesc
     PRIVATE
+        -O3
         -Wall
         -Wextra
         -pedantic
@@ -72,6 +73,3 @@ install(
           render/truecolor.hpp
     DESTINATION ${CMAKE_INSTALL_INCLUDEDIR}/aesc/render
 )
-
-#TODO: include(GenerateExportHeader)
-#TODO: generate_export_header(aesc)

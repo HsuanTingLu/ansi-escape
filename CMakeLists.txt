@@ -19,12 +19,22 @@
 
 # Most widely used distributions have cmake 3.5 or greater available as of March
 # 2019.
-cmake_minimum_required(VERSION 3.15)
+if(${CMAKE_VERSION} VERSION_GREATER "3.9")
+    cmake_minimum_required(VERSION 3.9)
+    message(WARNING "Using CMake version 3.9")
 
-# Compiler id for Apple Clang is now AppleClang.
-#cmake_policy(SET CMP0025 NEW)
-#cmake_policy(SET CMP0069 NEW)
-#cmake_policy(SET CMP0079 NEW)
+    include(CheckIPOSupported)
+    check_ipo_supported(RESULT ipo_support OUTPUT ipo_err_info LANGUAGES CXX)
+    if(ipo_support)
+        message(STATUS "compiler supports interprocedural optimization")
+    else()
+        message(WARNING "compiler does NOT support interprocedural optimization\nreason:\n${ipo_err_info}")
+    endif()
+else()
+    cmake_minimum_required(VERSION 3.5)
+    message(WARNING "CMake version less than 3.9, using version 3.5")
+endif()
+
 if(NOT ${UNIX})
     message(FATAL_ERROR "library not intended for non-UNIX-like systems")
 endif()
@@ -32,35 +42,6 @@ set(CMAKE_OSX_DEPLOYMENT_TARGET "10.15")  # Catalina
 
 project(aesc LANGUAGES CXX)
 
-# when aesc is included as subproject (i.e. using add_subdirectory(aesc))
-# in the source tree of a project that uses it, install rules are disabled.
-if(NOT "^${CMAKE_SOURCE_DIR}$" STREQUAL "^${PROJECT_SOURCE_DIR}$")
-    set(AESC_ENABLE_INSTALL FALSE)
-else()
-    set(AESC_ENABLE_INSTALL TRUE)
-endif()
-
-#include(CMakeDependentOption)
-#include(CMakePrintHelpers)
-
-
-##
-## using aesc targets
-## all public aesc targets are exported
-## with the aesc:: prefix
-##
-## DO NOT rely on the internal targets outside of the prefi
-
-# include current path
-#list(APPEND AESC_COMMON_INCLUDE_DIRS ${CMAKE_CURRENT_SOURCE_DIR})
-
-# find dependencies
-# find_package(xxx REQUIRED)
-
+include(GNUInstallDirs)
 add_subdirectory(aesc)
 add_subdirectory(examples EXCLUDE_FROM_ALL)
-
-if(AESC_ENABLE_INSTALL)
-
-endif()  # AESC_ENABLE_INSTALL
-
