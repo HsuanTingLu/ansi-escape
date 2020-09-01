@@ -42,6 +42,12 @@ set_target_properties(aesc PROPERTIES
     CXX_EXTENSIONS OFF
 )
 
+if(ipo_support)
+    set_target_properties(aesc PROPERTIES
+        INTERPROCEDURAL_OPTIMIZATION ON  # thin LTO
+    )
+endif()
+
 target_compile_options(aesc
     PRIVATE
         -O3
