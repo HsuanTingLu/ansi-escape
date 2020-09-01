@@ -40,7 +40,7 @@ manipulator::smanipiii foreground(const int r, const int g, const int b) {
           << end_expr;
         return s;
     };
-    return manipulator::smanipiii(h, r, g, b);
+    return {h, r, g, b};
 }
 manipulator::smanipiii background(const int r, const int g, const int b) {
     // @todo: assert 0 <= r,g,b <= 255
@@ -50,7 +50,7 @@ manipulator::smanipiii background(const int r, const int g, const int b) {
           << end_expr;
         return s;
     };
-    return manipulator::smanipiii(h, r, g, b);
+    return {h, r, g, b};
 }
 }  // namespace RGB
 

@@ -39,7 +39,7 @@ manipulator::smanipiii foreground(const int r, const int g, const int b) {
           << end_expr;
         return s;
     };
-    return manipulator::smanipiii(h, r, g, b);
+    return {h, r, g, b};
 }
 manipulator::smanipiii background(const int r, const int g, const int b) {
     // @todo: assert 0 <= r,g,b <= 5
@@ -49,7 +49,7 @@ manipulator::smanipiii background(const int r, const int g, const int b) {
           << end_expr;
         return s;
     };
-    return manipulator::smanipiii(h, r, g, b);
+    return {h, r, g, b};
 }
 }  // namespace RGB
 
@@ -60,7 +60,7 @@ manipulator::smanip foreground(const int n) {
         s << CSI_expr << foreground_8bit_expr << 255 - x << end_expr;
         return s;
     };
-    return manipulator::smanip(h, n);
+    return {h, n};
 }
 manipulator::smanip background(const int n) {
     // @todo: assert 0 <= n <= 23
@@ -68,7 +68,7 @@ manipulator::smanip background(const int n) {
         s << CSI_expr << background_8bit_expr << 255 - x << end_expr;
         return s;
     };
-    return manipulator::smanip(h, n);
+    return {h, n};
 }
 }  // namespace grey
 
