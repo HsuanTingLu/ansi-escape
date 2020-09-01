@@ -40,15 +40,4 @@ target_compile_options(showcolor
         -Werror
 )
 
-# TODO: @todo: if CMAKE version at least 3.9
-# Linker optimizations
-#TODO: include(CheckIPOSupported)
-#TODO: check_ipo_supported(RESULT ipo_support OUTPUT ipo_out LANGUAGES CXX)
-
-#TODO: if(ipo_support)
-#TODO:     set_property(TARGET showcolor PROPERTY INTERPROCEDURAL_OPTIMIZATION TRUE)
-#TODO: else()
-#TODO:     message(WARNING "IPO is not supported: ${ipo_out}")
-#TODO: endif()
-
 target_link_libraries(showcolor PRIVATE aesc)

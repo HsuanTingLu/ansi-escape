@@ -25,7 +25,7 @@
 
 namespace aesc {  // Ansi Escape Terminal
 
-namespace cursor {  // Cursor controls
+inline namespace cursor {  // Cursor controls
 
 enum class clear : int { to_end = 0, to_beginning = 1, entire = 2 };
 
@@ -45,6 +45,7 @@ manipulator::smanip EL(const clear n);
 std::ostream& save_pos(std::ostream& stream);
 // Restores cursor position and state
 std::ostream& restore_pos(std::ostream& stream);
+
 }  // namespace cursor
 
 }  // namespace aesc

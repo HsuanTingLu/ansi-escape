@@ -29,9 +29,7 @@ namespace manipulator {  // for stream manipulators that needs arguments
 
 class smanip {
     // manipulator that takes a single int as argument
-    template <typename CharT, typename Traits>
-    friend std::basic_ostream<CharT, Traits>& operator<<(
-        std::basic_ostream<CharT, Traits>&, const smanip&);
+    friend std::ostream& operator<<(std::ostream&, const smanip&);
 
    public:
     smanip(std::ostream& (*ff)(std::ostream&, const int), const int ii);
@@ -40,17 +38,9 @@ class smanip {
     std::ostream& (*f)(std::ostream&, const int);  // function to be called
     const int i;  // value to be used as argument
 };
-template <typename CharT, typename Traits>
-std::basic_ostream<CharT, Traits>& operator<<(
-    std::basic_ostream<CharT, Traits>& os, const smanip& m) {
-    m.f(os, m.i);  // call m’s function with m’s stored value i
-    return os;
-}
 
 class smanipiii {  // manipulator that takes triple ints as arguments
-    template <typename CharT, typename Traits>
-    friend std::basic_ostream<CharT, Traits>& operator<<(
-        std::basic_ostream<CharT, Traits>&, const smanipiii&);
+    friend std::ostream& operator<<(std::ostream&, const smanipiii&);
 
    public:
     smanipiii(std::ostream& (*ff)(std::ostream&, const int, const int,
@@ -65,12 +55,6 @@ class smanipiii {  // manipulator that takes triple ints as arguments
     const int i2;
     const int i3;
 };
-template <typename CharT, typename Traits>
-std::basic_ostream<CharT, Traits>& operator<<(
-    std::basic_ostream<CharT, Traits>& os, const smanipiii& m) {
-    m.f(os, m.i1, m.i2, m.i3);  // call m’s function with m’s stored value i
-    return os;
-}
 
 }  // namespace manipulator
 
