@@ -20,6 +20,8 @@
 
 #include "aesc/render/color256.hpp"
 
+#include <stdexcept>
+
 #include "aesc/internal/sequences.hpp"
 #include "aesc/render/internal.hpp"
 
@@ -35,7 +37,10 @@ constexpr const char* background_8bit_expr = "48;5;";
 namespace RGB {
 
 manipulator::smanipiii foreground(const int r, const int g, const int b) {
-    // @todo: assert 0 <= r,g,b <= 5
+    if (0 > r || r > 5 || 0 > g || g > 5 || 0 > b || b > 5) {
+        throw std::invalid_argument("invalid argument(s)");
+    }
+
     auto h = [](std::ostream& s, const int r, const int g,
                 const int b) -> std::ostream& {
         s << CSI_expr << foreground_8bit_expr << 16 + 36 * r + 6 * g + b
@@ -46,7 +51,10 @@ manipulator::smanipiii foreground(const int r, const int g, const int b) {
 }
 
 manipulator::smanipiii background(const int r, const int g, const int b) {
-    // @todo: assert 0 <= r,g,b <= 5
+    if (0 > r || r > 5 || 0 > g || g > 5 || 0 > b || b > 5) {
+        throw std::invalid_argument("invalid argument(s)");
+    }
+
     auto h = [](std::ostream& s, const int r, const int g,
                 const int b) -> std::ostream& {
         s << CSI_expr << background_8bit_expr << 16 + 36 * r + 6 * g + b
@@ -61,7 +69,10 @@ manipulator::smanipiii background(const int r, const int g, const int b) {
 namespace grey {
 
 manipulator::smanip foreground(const int n) {
-    // @todo: assert 0 <= n <= 23
+    if (0 > n || n > 23) {
+        throw std::invalid_argument("invalid argument(s)");
+    }
+
     auto h = [](std::ostream& s, const int x) -> std::ostream& {
         s << CSI_expr << foreground_8bit_expr << 255 - x << end_expr;
         return s;
@@ -70,7 +81,10 @@ manipulator::smanip foreground(const int n) {
 }
 
 manipulator::smanip background(const int n) {
-    // @todo: assert 0 <= n <= 23
+    if (0 > n || n > 23) {
+        throw std::invalid_argument("invalid argument(s)");
+    }
+
     auto h = [](std::ostream& s, const int x) -> std::ostream& {
         s << CSI_expr << background_8bit_expr << 255 - x << end_expr;
         return s;

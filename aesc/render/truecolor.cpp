@@ -20,6 +20,8 @@
 
 #include "aesc/render/truecolor.hpp"
 
+#include <stdexcept>
+
 #include "aesc/internal/sequences.hpp"
 #include "aesc/render/internal.hpp"
 
@@ -35,7 +37,10 @@ constexpr const char* background_24bit_expr = "48;2;";
 inline namespace RGB {
 
 manipulator::smanipiii foreground(const int r, const int g, const int b) {
-    // @todo: assert 0 <= r,g,b <= 255
+    if (0 > r || r > 255 || 0 > g || g > 255 || 0 > b || b > 255) {
+        throw std::invalid_argument("invalid argument(s)");
+    }
+
     auto h = [](std::ostream& s, const int r, const int g,
                 const int b) -> std::ostream& {
         s << CSI_expr << foreground_24bit_expr << r << ";" << g << ";" << b
@@ -46,7 +51,10 @@ manipulator::smanipiii foreground(const int r, const int g, const int b) {
 }
 
 manipulator::smanipiii background(const int r, const int g, const int b) {
-    // @todo: assert 0 <= r,g,b <= 255
+    if (0 > r || r > 255 || 0 > g || g > 255 || 0 > b || b > 255) {
+        throw std::invalid_argument("invalid argument(s)");
+    }
+
     auto h = [](std::ostream& s, const int r, const int g,
                 const int b) -> std::ostream& {
         s << CSI_expr << background_24bit_expr << r << ";" << g << ";" << b
