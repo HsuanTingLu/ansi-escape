@@ -23,6 +23,8 @@
 cmake_minimum_required(VERSION 3.9)
 project(aesc LANGUAGES CXX)
 
+option(BUILD_SHARED_LIBS "Build as shared library." ON)
+
 option(ENABLE_IPO "Enable interprocedural optimization." ON)
 if(ENABLE_IPO)
     include(CheckIPOSupported)
