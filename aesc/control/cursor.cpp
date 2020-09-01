@@ -25,6 +25,7 @@
 namespace aesc {  // Ansi Escape Terminal
 
 namespace cursor {
+
 namespace {
 constexpr const char* up_expr = "A";
 constexpr const char* down_expr = "B";
@@ -44,6 +45,7 @@ manipulator::smanip up(const int n) {
     };
     return {h, n};
 }
+
 manipulator::smanip down(const int n) {
     auto h = [](std::ostream& s, const int x) -> std::ostream& {
         s << CSI_expr << x << down_expr;
@@ -51,6 +53,7 @@ manipulator::smanip down(const int n) {
     };
     return {h, n};
 }
+
 manipulator::smanip forward(const int n) {
     auto h = [](std::ostream& s, const int x) -> std::ostream& {
         s << CSI_expr << x << forward_expr;
@@ -58,6 +61,7 @@ manipulator::smanip forward(const int n) {
     };
     return {h, n};
 }
+
 manipulator::smanip back(const int n) {
     auto h = [](std::ostream& s, const int x) -> std::ostream& {
         s << CSI_expr << x << back_expr;
@@ -65,6 +69,7 @@ manipulator::smanip back(const int n) {
     };
     return {h, n};
 }
+
 manipulator::smanip next_line(const int n) {
     auto h = [](std::ostream& s, const int x) -> std::ostream& {
         s << CSI_expr << x << next_line_expr;
@@ -72,6 +77,7 @@ manipulator::smanip next_line(const int n) {
     };
     return {h, n};
 }
+
 manipulator::smanip prev_line(const int n) {
     auto h = [](std::ostream& s, const int x) -> std::ostream& {
         s << CSI_expr << x << prev_line_expr;
@@ -79,6 +85,7 @@ manipulator::smanip prev_line(const int n) {
     };
     return {h, n};
 }
+
 manipulator::smanip EL(clear n) {
     /*
      * n = 0: clear from cursor to end of screen
@@ -91,10 +98,12 @@ manipulator::smanip EL(clear n) {
     };
     return {h, static_cast<int>(n)};
 }
+
 std::ostream& save_pos(std::ostream& stream) {
     stream << CSI_expr << save_cursor_expr;
     return stream;
 }
+
 std::ostream& restore_pos(std::ostream& stream) {
     stream << CSI_expr << restore_cursor_expr;
     return stream;

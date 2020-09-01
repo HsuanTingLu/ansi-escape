@@ -26,11 +26,14 @@
 namespace aesc {  // Ansi Escape Terminal
 
 namespace color256 {
+
 namespace {  // 8-bit, 256 colors
 constexpr const char* foreground_8bit_expr = "38;5;";
 constexpr const char* background_8bit_expr = "48;5;";
 }  // anonymous namespace
+
 namespace RGB {
+
 manipulator::smanipiii foreground(const int r, const int g, const int b) {
     // @todo: assert 0 <= r,g,b <= 5
     auto h = [](std::ostream& s, const int r, const int g,
@@ -41,6 +44,7 @@ manipulator::smanipiii foreground(const int r, const int g, const int b) {
     };
     return {h, r, g, b};
 }
+
 manipulator::smanipiii background(const int r, const int g, const int b) {
     // @todo: assert 0 <= r,g,b <= 5
     auto h = [](std::ostream& s, const int r, const int g,
@@ -51,9 +55,11 @@ manipulator::smanipiii background(const int r, const int g, const int b) {
     };
     return {h, r, g, b};
 }
+
 }  // namespace RGB
 
 namespace grey {
+
 manipulator::smanip foreground(const int n) {
     // @todo: assert 0 <= n <= 23
     auto h = [](std::ostream& s, const int x) -> std::ostream& {
@@ -62,6 +68,7 @@ manipulator::smanip foreground(const int n) {
     };
     return {h, n};
 }
+
 manipulator::smanip background(const int n) {
     // @todo: assert 0 <= n <= 23
     auto h = [](std::ostream& s, const int x) -> std::ostream& {
@@ -70,6 +77,7 @@ manipulator::smanip background(const int n) {
     };
     return {h, n};
 }
+
 }  // namespace grey
 
 }  // namespace color256

@@ -32,11 +32,14 @@ namespace color256 {
  * 16- 231:  6×6×6 cube (216 colors): 16 + 36×r + 6×g + b (0≤r,g,b≤5)
  * 232-255:  grayscale from black to white in 24 steps
  */
+
 namespace RGB {
+
 manipulator::smanipiii foreground(const int r = 0, const int g = 0,
                                   const int b = 0);
 manipulator::smanipiii background(const int r = 0, const int g = 0,
                                   const int b = 0);
+
 }  // namespace RGB
 
 namespace grey {
@@ -46,6 +49,7 @@ namespace grey {
  */
 manipulator::smanip foreground(const int n = 1);
 manipulator::smanip background(const int n = 1);
+
 }  // namespace grey
 
 }  // namespace color256

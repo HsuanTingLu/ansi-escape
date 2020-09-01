@@ -30,10 +30,12 @@ namespace aesc {  // Ansi Escape Terminal
 namespace truecolor {
 
 namespace RGB {
+
 manipulator::smanipiii foreground(const int r = 0, const int g = 0,
                                   const int b = 0);
 manipulator::smanipiii background(const int r = 0, const int g = 0,
                                   const int b = 0);
+
 }  // namespace RGB
 
 }  // namespace truecolor

@@ -45,6 +45,7 @@ manipulator::smanip EL(const clear n);
 std::ostream& save_pos(std::ostream& stream);
 // Restores cursor position and state
 std::ostream& restore_pos(std::ostream& stream);
+
 }  // namespace cursor
 
 }  // namespace aesc

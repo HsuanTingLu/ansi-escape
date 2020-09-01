@@ -26,6 +26,7 @@
 namespace aesc {  // Ansi Escape Terminal
 
 namespace render {  // Select Graphic Rendition
+
 namespace {
 // HACK: constexpr const char* end_expr = "m";
 constexpr const char* reset_expr = "0";
@@ -48,58 +49,71 @@ std::ostream& reset(std::ostream& stream) {
     stream << CSI_expr << reset_expr << end_expr;
     return stream;
 }
+
 std::ostream& bold(std::ostream& stream) {
     stream << CSI_expr << bold_expr << end_expr;
     return stream;
 }
+
 std::ostream& faint(std::ostream& stream) {
     stream << CSI_expr << faint_expr << end_expr;
     return stream;
 }
+
 std::ostream& italic(std::ostream& stream) {
     stream << CSI_expr << italic_expr << end_expr;
     return stream;
 }
+
 std::ostream& underline(std::ostream& stream) {
     stream << CSI_expr << underline_expr << end_expr;
     return stream;
 }
 
 namespace blink {
+
 std::ostream& slow(std::ostream& stream) {
     stream << CSI_expr << slow_blink_expr << end_expr;
     return stream;
 }
+
 std::ostream& rapid(std::ostream& stream) {
     stream << CSI_expr << rapid_blink_expr << end_expr;
     return stream;
 }
+
 }  // namespace blink
 
 std::ostream& reverse_color(std::ostream& stream) {
     stream << CSI_expr << reverse_expr << end_expr;
     return stream;
 }
+
 std::ostream& cross_out(std::ostream& stream) {
     stream << CSI_expr << cross_out_expr << end_expr;
     return stream;
 }
+
 std::ostream& reset_intensity(std::ostream& stream) {
     stream << CSI_expr << reset_intensity_expr << end_expr;
     return stream;
 }
+
 std::ostream& cancel_underline(std::ostream& stream) {
     stream << CSI_expr << cancel_underline_expr << end_expr;
     return stream;
 }
+
 std::ostream& cancel_blink(std::ostream& stream) {
     stream << CSI_expr << cancel_blink_expr << end_expr;
     return stream;
 }
+
 std::ostream& cancel_inverse(std::ostream& stream) {
     stream << CSI_expr << cancel_inverse_expr << end_expr;
     return stream;
 }
+
 std::ostream& cancel_cross_out(std::ostream& stream) {
     stream << CSI_expr << cancel_cross_out_expr << end_expr;
     return stream;
