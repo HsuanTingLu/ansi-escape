@@ -1,6 +1,7 @@
 # Ansi-Escape  ![GitHub](https://img.shields.io/github/license/hsuantinglu/ansi-escape) ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/HsuanTingLu/ansi-escape?include_prereleases)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/HsuanTingLu/ansi-escape)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/18170c1dd8f746328ac668d5fdfbb5c2)](https://www.codacy.com/manual/HsuanTingLu/ansi-escape?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=HsuanTingLu/ansi-escape&amp;utm_campaign=Badge_Grade)
+![latest SemVer release include pre](https://img.shields.io/github/v/release/hsuantinglu/ansi-escape?include_prereleases)
 
 ANSI escape codes wrapped in C++ string streams.
 
@@ -18,7 +19,7 @@ It's everything you need for advanced terminal control, wrapped in light headers
 `Ansi-Escape`, or `AESC`, is an effort to wrap common terminal controls and colors for prettier terminal output.
 It is built and tested on macOS, but probably will work in other \*NIX systems as well.
 
-To maximize compatibility, we choose to support C++11, with CMake-3.5 as a build dependency.
+To maximize compatibility, we choose to support C++11, with CMake-3.9 as a build dependency.
 
 <a name="quickstart"></a>
 ## Quickstart
@@ -92,9 +93,3 @@ cmake .. && make showcolor
 # execute example
 ./examples/showcolor
 ```
-
-<a name="links"></a>
-## Links
-
-Projects that use Ansi-Escape
-- [pbar](https://github.com/HsuanTingLu/pbar)
