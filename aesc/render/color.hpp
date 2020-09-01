@@ -25,7 +25,7 @@
 
 namespace aesc {  // Ansi Escape Terminal
 
-namespace color {
+inline namespace color {
 
 std::ostream& black(std::ostream& stream);
 std::ostream& red(std::ostream& stream);
