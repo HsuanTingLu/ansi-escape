@@ -35,10 +35,8 @@ namespace color256 {
 
 namespace RGB {
 
-manipulator::smanipiii foreground(const int r = 0, const int g = 0,
-                                  const int b = 0);
-manipulator::smanipiii background(const int r = 0, const int g = 0,
-                                  const int b = 0);
+manipulator::smanipiii foreground(int r = 0, int g = 0, int b = 0);
+manipulator::smanipiii background(int r = 0, int g = 0, int b = 0);
 auto& fg = foreground;
 auto& bg = background;
 
@@ -49,8 +47,8 @@ namespace grey {
  * 24 step grey:
  * <n> ranges from 0 to 23, from white to black
  */
-manipulator::smanip foreground(const int n = 1);
-manipulator::smanip background(const int n = 1);
+manipulator::smanip foreground(int n = 1);
+manipulator::smanip background(int n = 1);
 auto& fg = foreground;
 auto& bg = background;
 

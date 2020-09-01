@@ -31,10 +31,8 @@ namespace truecolor {
 
 inline namespace RGB {
 
-manipulator::smanipiii foreground(const int r = 0, const int g = 0,
-                                  const int b = 0);
-manipulator::smanipiii background(const int r = 0, const int g = 0,
-                                  const int b = 0);
+manipulator::smanipiii foreground(int r = 0, int g = 0, int b = 0);
+manipulator::smanipiii background(int r = 0, int g = 0, int b = 0);
 auto& fg = foreground;
 auto& bg = background;
 
