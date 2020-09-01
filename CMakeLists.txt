@@ -21,9 +21,13 @@
 # 2019.
 
 cmake_minimum_required(VERSION 3.9)
+project(aesc LANGUAGES CXX)
+
+if(NOT ${UNIX})
+    message(FATAL_ERROR "library not intended for non-UNIX-like systems")
+endif()
 
 option(ENABLE_IPO "Enable interprocedural optimization." ON)
-
 if(ENABLE_IPO)
     include(CheckIPOSupported)
     check_ipo_supported(RESULT ipo_support OUTPUT ipo_err_info LANGUAGES CXX)
@@ -34,11 +38,9 @@ if(ENABLE_IPO)
     endif()
 endif()
 
-if(NOT ${UNIX})
-    message(FATAL_ERROR "library not intended for non-UNIX-like systems")
-endif()
+option(SKIP_CLANG_TIDY "Skip clang-tidy checks when build type is not set." OFF)
 
-project(aesc LANGUAGES CXX)
+endif()
 
 add_subdirectory(aesc)
 add_subdirectory(examples EXCLUDE_FROM_ALL)

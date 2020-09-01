@@ -48,13 +48,42 @@ if(ipo_support)
     )
 endif()
 
+# Conditionally runs clang-tidy
+if((NOT CMAKE_BUILD_TYPE) AND (NOT SKIP_CLANG_TIDY))
+    # Only when build type is not defined
+    find_program(
+        clang_tidy_path
+        clang-tidy
+        HINTS "/usr/local/opt/llvm/bin/"
+        PATHS "/usr/local/bin" "/usr/bin"
+    )
+    if(NOT clang_tidy_path STREQUAL "clang_tidy_path-NOTFOUND")
+        message(VERBOSE "\"clang-tidy\"\t program path: ${clang_tidy_path}")
+        set_target_properties(aesc PROPERTIES
+            CXX_CLANG_TIDY ${clang_tidy_path}
+        )
+    else()
+        message(WARNING "clang-tidy not found")
+    endif()
+elseif(SKIP_CLANG_TIDY)
+    message(STATUS "skipping clang-tidy checks")
+endif()
+
 target_compile_options(aesc
     PRIVATE
-        -O3
+        $<$<OR:$<NOT:$<BOOL:${CMAKE_BUILD_TYPE}>>,$<CONFIG:Debug>>:-Og;-g;-fno-omit-frame-pointer>
+        $<$<CONFIG:MinSizeRel>:-Os>
+        $<$<CONFIG:RelWithDebInfo>:-O3;-g>
+        $<$<CONFIG:RELEASE>:-O3>
+
+        -march=native  # FIXME: be cautious
         -Wall
         -Wextra
         -pedantic
-        -Werror
+        -Wpedantic
+        -Wc++11-compat
+        -Wc++11-compat-pedantic
+        -Wc++11-extensions
 )
 
 install(TARGETS aesc
