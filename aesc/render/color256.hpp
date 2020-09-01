@@ -37,8 +37,8 @@ namespace RGB {
 
 manipulator::smanipiii foreground(int r = 0, int g = 0, int b = 0);
 manipulator::smanipiii background(int r = 0, int g = 0, int b = 0);
-auto& fg = foreground;
-auto& bg = background;
+extern decltype(foreground)& fg;
+extern decltype(background)& bg;
 
 }  // namespace RGB
 
@@ -49,8 +49,8 @@ namespace grey {
  */
 manipulator::smanip foreground(int n = 1);
 manipulator::smanip background(int n = 1);
-auto& fg = foreground;
-auto& bg = background;
+extern decltype(foreground)& fg;
+extern decltype(background)& bg;
 
 }  // namespace grey
 

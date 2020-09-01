@@ -64,6 +64,10 @@ manipulator::smanipiii background(const int r, const int g, const int b) {
     return {h, r, g, b};
 }
 
+auto& fg = foreground;
+
+auto& bg = background;
+
 }  // namespace RGB
 
 namespace grey {
@@ -91,6 +95,10 @@ manipulator::smanip background(const int n) {
     };
     return {h, n};
 }
+
+auto& fg = foreground;
+
+auto& bg = background;
 
 }  // namespace grey
 
