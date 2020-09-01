@@ -1,7 +1,6 @@
 # Ansi-Escape  ![GitHub](https://img.shields.io/github/license/hsuantinglu/ansi-escape) ![GitHub release (latest SemVer including pre-releases)](https://img.shields.io/github/v/release/HsuanTingLu/ansi-escape?include_prereleases)
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/HsuanTingLu/ansi-escape)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/18170c1dd8f746328ac668d5fdfbb5c2)](https://www.codacy.com/manual/HsuanTingLu/ansi-escape?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=HsuanTingLu/ansi-escape&amp;utm_campaign=Badge_Grade)
-![latest SemVer release include pre](https://img.shields.io/github/v/release/hsuantinglu/ansi-escape?include_prereleases)
 
 ANSI escape codes wrapped in C++ string streams.
 
@@ -24,13 +23,13 @@ To maximize compatibility, we choose to support C++11, with CMake-3.9 as a build
 <a name="quickstart"></a>
 ## Quickstart
 
-`AESC` implemented most ANSI escape sequences
+`AESC` implemented most ANSI escape sequences, including text coloring and cursor controlling
 
 there are example codes in the examples/ directory, see [Install](#install) for more information.
 
 Find detailed list of available APIs at [docs](aesc/README.md) and [wikipedia](https://en.wikipedia.org/wiki/ANSI_escape_code)
 
-### Simple example
+### Simple example of text coloring
 
 ```cpp
 #include <iostream>
@@ -38,35 +37,22 @@ Find detailed list of available APIs at [docs](aesc/README.md) and [wikipedia](h
 using namespace std;
 
 int main() {
-    std::cout << " line1 " << std::endl << aesc::cursor::up(1)
-              << " 33 " << aesc::cursor::EL(aesc::cursor::clear::entire)
-              << " cleared " << aesc::render::bold << aesc::render::blink::slow << " bold" << aesc::render::reverse_color
-              << " reversed" << aesc::render::reset_intensity << " reset bold"
-              << aesc::render::cancel_blink << " reset blink" << aesc::render::cancel_inverse
-              << " cancel reverse" << std::endl;
+    std::cout << aesc::color::red << " foreground is red" << std::endl;
 
-    std::cout << aesc::color::red << aesc::color::background::cyan << " bg_cyan, fg_red" << aesc::render::reset << std::endl;
     std::cout << aesc::color::bright::red << aesc::color::bright::background::cyan
-         << " bright bg_cyan, bright fg_red" << aesc::render::reset << std::endl;
-
-    std::cout << "24 level grey FOREground:" << std::endl << "start";
-    for (int i = 0; i != 24; ++i) {
-        std::cout << aesc::color256::grey::foreground(i) << "█";
-    }
-    std::cout << aesc::render::reset << "done" << std::endl;
-    std::cout << "24 level grey BACKground:" << std::endl << "start";
-    for (int i = 0; i != 24; ++i) {
-        std::cout << aesc::color256::grey::background(i) << " ";
-    }
-    std::cout << aesc::render::reset << "done" << std::endl;
+         << " background bright cyan, foreground bright red" << std::endl;
 
     std::cout << aesc::color256::RGB::foreground(2, 3, 0) << "256 color RGB test sequence"
-         << aesc::render::reset << std::endl;
+         << std::endl;
 
     std::cout << aesc::truecolor::RGB::foreground(130, 250, 0)
          << "24-bit true color RGB test sequence" << aesc::render::reset << std::endl;
 }
 ```
+
+### Simple example of cursor control
+
+See the provided example at [examples/show_color.cpp](examples/show_color.cpp)
 
 <a name="install"></a>
 ## Install
