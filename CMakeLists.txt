@@ -40,6 +40,11 @@ endif()
 
 option(SKIP_CLANG_TIDY "Skip clang-tidy checks when build type is not set." OFF)
 
+# UndefinedBehaviorSanitizer
+option(ENABLE_UBSAN "Enable UndefinedBehaviorSanitizer." OFF)
+option(ENABLE_UBSAN_SYMBOLIZED_OUTPUTS "Let UndefinedBehaviorSanitizer print symbolized stack trace." OFF)
+if(ENABLE_UBSAN_SYMBOLIZED_OUTPUTS)
+    set(ENABLE_UBSAN ON)
 endif()
 
 add_subdirectory(aesc)
