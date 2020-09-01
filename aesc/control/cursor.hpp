@@ -25,7 +25,7 @@
 
 namespace aesc {  // Ansi Escape Terminal
 
-namespace cursor {  // Cursor controls
+inline namespace cursor {  // Cursor controls
 
 enum class clear : int { to_end = 0, to_beginning = 1, entire = 2 };
 

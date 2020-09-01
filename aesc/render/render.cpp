@@ -25,10 +25,9 @@
 
 namespace aesc {  // Ansi Escape Terminal
 
-namespace render {  // Select Graphic Rendition
+inline namespace render {  // Select Graphic Rendition
 
 namespace {
-// HACK: constexpr const char* end_expr = "m";
 constexpr const char* reset_expr = "0";
 constexpr const char* bold_expr = "1";
 constexpr const char* faint_expr = "2";

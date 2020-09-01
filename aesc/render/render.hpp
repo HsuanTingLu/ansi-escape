@@ -25,7 +25,7 @@
 
 namespace aesc {  // Ansi Escape Terminal
 
-namespace render {  // Select Graphic Rendition
+inline namespace render {  // Select Graphic Rendition
 
 std::ostream& reset(std::ostream& stream);
 std::ostream& bold(std::ostream& stream);   // with increased intensity

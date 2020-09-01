@@ -32,7 +32,7 @@ constexpr const char* foreground_24bit_expr = "38;2;";
 constexpr const char* background_24bit_expr = "48;2;";
 }  // anonymous namespace
 
-namespace RGB {
+inline namespace RGB {
 
 manipulator::smanipiii foreground(const int r, const int g, const int b) {
     // @todo: assert 0 <= r,g,b <= 255

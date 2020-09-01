@@ -48,6 +48,7 @@ std::ostream& cyan(std::ostream& stream);
 std::ostream& white(std::ostream& stream);
 
 }  // namespace background
+namespace bg = background;
 
 namespace bright {
 
@@ -72,6 +73,7 @@ std::ostream& cyan(std::ostream& stream);
 std::ostream& white(std::ostream& stream);
 
 }  // namespace background
+namespace bg = background;
 
 }  // namespace bright
 

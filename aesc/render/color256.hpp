@@ -39,6 +39,8 @@ manipulator::smanipiii foreground(const int r = 0, const int g = 0,
                                   const int b = 0);
 manipulator::smanipiii background(const int r = 0, const int g = 0,
                                   const int b = 0);
+auto& fg = foreground;
+auto& bg = background;
 
 }  // namespace RGB
 
@@ -49,10 +51,14 @@ namespace grey {
  */
 manipulator::smanip foreground(const int n = 1);
 manipulator::smanip background(const int n = 1);
+auto& fg = foreground;
+auto& bg = background;
 
 }  // namespace grey
 
 }  // namespace color256
+
+namespace RGB = color256::RGB;
 
 }  // namespace aesc
 

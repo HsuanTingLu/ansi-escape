@@ -24,7 +24,7 @@
 
 namespace aesc {  // Ansi Escape Terminal
 
-namespace cursor {
+inline namespace cursor {
 
 namespace {
 constexpr const char* up_expr = "A";
