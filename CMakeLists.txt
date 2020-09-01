@@ -43,5 +43,7 @@ if(ENABLE_UBSAN_SYMBOLIZED_OUTPUTS)
     set(ENABLE_UBSAN ON)
 endif()
 
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
+
 add_subdirectory(aesc)
 add_subdirectory(examples EXCLUDE_FROM_ALL)
