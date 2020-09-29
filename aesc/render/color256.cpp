@@ -31,7 +31,7 @@ manipulator::smanipiii foreground(const int r, const int g, const int b) {
           << end_expr;
         return s;
     };
-    return {h, r, g, b};
+    return manipulator::smanipiii(h, r, g, b);
 }
 
 manipulator::smanipiii background(const int r, const int g, const int b) {
@@ -45,7 +45,7 @@ manipulator::smanipiii background(const int r, const int g, const int b) {
           << end_expr;
         return s;
     };
-    return {h, r, g, b};
+    return manipulator::smanipiii(h, r, g, b);
 }
 
 auto& fg = foreground;
@@ -65,7 +65,7 @@ manipulator::smanip foreground(const int n) {
         s << CSI_expr << foreground_8bit_expr << 255 - x << end_expr;
         return s;
     };
-    return {h, n};
+    return manipulator::smanip(h, n);
 }
 
 manipulator::smanip background(const int n) {
@@ -77,7 +77,7 @@ manipulator::smanip background(const int n) {
         s << CSI_expr << background_8bit_expr << 255 - x << end_expr;
         return s;
     };
-    return {h, n};
+    return manipulator::smanip(h, n);
 }
 
 auto& fg = foreground;

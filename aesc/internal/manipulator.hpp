@@ -16,7 +16,8 @@ class smanip {
     friend std::ostream& operator<<(std::ostream&, const smanip&);
 
    public:
-    smanip(std::ostream& (*ff)(std::ostream&, const int), const int ii);
+    explicit smanip(std::ostream& (*ff)(std::ostream&, const int),
+                    const int ii);
 
    private:
     std::ostream& (*f)(std::ostream&, const int);  // function to be called
@@ -27,9 +28,9 @@ class smanipiii {  // manipulator that takes triple ints as arguments
     friend std::ostream& operator<<(std::ostream&, const smanipiii&);
 
    public:
-    smanipiii(std::ostream& (*ff)(std::ostream&, const int, const int,
-                                  const int),
-              const int i1, const int i2, const int i3);
+    explicit smanipiii(std::ostream& (*ff)(std::ostream&, const int, const int,
+                                           const int),
+                       const int i1, const int i2, const int i3);
 
    private:
     std::ostream& (*f)(std::ostream&, const int, const int,

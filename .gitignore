@@ -1,5 +1,4 @@
 # Build system
-.clangd/
 ## Buck
 .buckd/
 buck-out/
@@ -9,6 +8,8 @@ build/
 # Editors
 ## vscode
 .vscode/
+## Clangd
+.clangd/
 
 # Prerequisites
 *.d

@@ -27,7 +27,7 @@ manipulator::smanip up(const int n) {
         s << CSI_expr << x << up_expr;
         return s;
     };
-    return {h, n};
+    return manipulator::smanip(h, n);
 }
 
 manipulator::smanip down(const int n) {
@@ -35,7 +35,7 @@ manipulator::smanip down(const int n) {
         s << CSI_expr << x << down_expr;
         return s;
     };
-    return {h, n};
+    return manipulator::smanip(h, n);
 }
 
 manipulator::smanip forward(const int n) {
@@ -43,7 +43,7 @@ manipulator::smanip forward(const int n) {
         s << CSI_expr << x << forward_expr;
         return s;
     };
-    return {h, n};
+    return manipulator::smanip(h, n);
 }
 
 manipulator::smanip back(const int n) {
@@ -51,7 +51,7 @@ manipulator::smanip back(const int n) {
         s << CSI_expr << x << back_expr;
         return s;
     };
-    return {h, n};
+    return manipulator::smanip(h, n);
 }
 
 manipulator::smanip next_line(const int n) {
@@ -59,7 +59,7 @@ manipulator::smanip next_line(const int n) {
         s << CSI_expr << x << next_line_expr;
         return s;
     };
-    return {h, n};
+    return manipulator::smanip(h, n);
 }
 
 manipulator::smanip prev_line(const int n) {
@@ -67,7 +67,7 @@ manipulator::smanip prev_line(const int n) {
         s << CSI_expr << x << prev_line_expr;
         return s;
     };
-    return {h, n};
+    return manipulator::smanip(h, n);
 }
 
 manipulator::smanip EL(clear n) {
@@ -82,7 +82,7 @@ manipulator::smanip EL(clear n) {
         s << CSI_expr << x << erase_in_line_expr;
         return s;
     };
-    return {h, static_cast<int>(n)};
+    return manipulator::smanip(h, static_cast<int>(n));
 }
 
 std::ostream& save_pos(std::ostream& stream) {
