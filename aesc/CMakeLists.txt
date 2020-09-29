@@ -17,7 +17,7 @@
 # along with this program.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-add_library(aesc SHARED)
+add_library(aesc)  # Depends on option:BUILD_SHARED_LIBS
 
 target_sources(aesc
     INTERFACE

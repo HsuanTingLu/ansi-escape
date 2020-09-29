@@ -68,7 +68,7 @@ brew install ansi-escape
 
 ### Build with CMake
 
-CMake is the official build system. At least version 3.5 is needed.
+CMake is the official build system. At least version 3.9 is needed.
 
 ```bash
 mkdir build; cd build/

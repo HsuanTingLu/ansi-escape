@@ -1,4 +1,5 @@
 # Build system
+.clangd/
 ## Buck
 .buckd/
 buck-out/

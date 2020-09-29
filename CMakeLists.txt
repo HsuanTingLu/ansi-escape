@@ -23,6 +23,8 @@
 cmake_minimum_required(VERSION 3.9)
 project(aesc LANGUAGES CXX)
 
+option(BUILD_SHARED_LIBS "Build as shared library." ON)
+
 option(ENABLE_IPO "Enable interprocedural optimization." ON)
 if(ENABLE_IPO)
     include(CheckIPOSupported)
@@ -42,6 +44,8 @@ option(ENABLE_UBSAN_SYMBOLIZED_OUTPUTS "Let UndefinedBehaviorSanitizer print sym
 if(ENABLE_UBSAN_SYMBOLIZED_OUTPUTS)
     set(ENABLE_UBSAN ON)
 endif()
+
+set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 add_subdirectory(aesc)
 add_subdirectory(examples EXCLUDE_FROM_ALL)

@@ -25,7 +25,7 @@
 
 namespace aesc {  // Ansi Escape Terminal
 
-namespace color {
+inline namespace color {
 
 inline namespace {  // 4-bit
 // foreground colors, 30-39
