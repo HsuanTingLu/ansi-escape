@@ -90,7 +90,9 @@ manipulator::smanip EL(clear n) {
     /*
      * n = 0: clear from cursor to end of screen
      * n = 1: clear from cursor to beginning of the screen
-     * n = 2: clear entire screen, and moves cursor to upper left
+     * n = 2: clear entire line
+     *
+     * Cursor position does NOT change
      */
     auto h = [](std::ostream& s, const int x) -> std::ostream& {
         s << CSI_expr << x << erase_in_line_expr;
