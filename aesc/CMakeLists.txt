@@ -61,7 +61,7 @@ if(ENABLE_UBSAN_SYMBOLIZED_OUTPUTS)
     if(NOT llvm_symbolizer_path STREQUAL "llvm_symbolizer_path-NOTFOUND")
         message(VERBOSE "\"llvm-symbolizer\"\t program path: ${llvm_symbolizer_path}")
         set(ENV{UBSAN_SYMBOLIZER_PATH} "${llvm_symbolizer_path}")
-        set(ENV{UBSAN_OPTIONS} "print_stacktrace=1") 
+        set(ENV{UBSAN_OPTIONS} "print_stacktrace=1")
     else()
         message(WARNING "llvm-symbolizer not found")
     endif()
@@ -78,7 +78,7 @@ target_compile_options(aesc
         $<$<BOOL:${ENABLE_UBSAN}>:-fsanitize=undefined;-g;-fno-omit-frame-pointer>
         $<$<AND:$<BOOL:${ENABLE_UBSAN}>,$<CONFIG:RelWithDebInfo>>:-fsanitize=-fsanitize-minimal-runtime>
 
-        -march=native  # FIXME: be cautious
+        # -march=native  # FIXME: be cautious
         -Wall
         -Wextra
         -pedantic
