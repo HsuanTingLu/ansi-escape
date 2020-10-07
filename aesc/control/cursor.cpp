@@ -4,11 +4,11 @@
 
 #include "aesc/control/cursor.hpp"
 
-#include "aesc/internal/sequences.hpp"
-
 namespace aesc {  // Ansi Escape Terminal
 
 inline namespace cursor {
+
+namespace internal {
 
 namespace {
 constexpr const char* up_expr = "A";
@@ -22,76 +22,51 @@ constexpr const char* save_cursor_expr = "s";
 constexpr const char* restore_cursor_expr = "u";
 }  // anonymous namespace
 
-manipulator::smanip up(const int n) {
-    auto h = [](std::ostream& s, const int x) -> std::ostream& {
-        s << CSI_expr << x << up_expr;
-        return s;
-    };
-    return manipulator::smanip(h, n);
+auto up(std::ostream& s, const int x) -> std::ostream& {
+    s << CSI_expr << x << up_expr;
+    return s;
 }
 
-manipulator::smanip down(const int n) {
-    auto h = [](std::ostream& s, const int x) -> std::ostream& {
-        s << CSI_expr << x << down_expr;
-        return s;
-    };
-    return manipulator::smanip(h, n);
-}
+auto down(std::ostream& s, const int x) -> std::ostream& {
+    // TODO: rewrite the following lines like in L26
+    s << CSI_expr << x << down_expr;
+    return s;
+};
 
-manipulator::smanip forward(const int n) {
-    auto h = [](std::ostream& s, const int x) -> std::ostream& {
-        s << CSI_expr << x << forward_expr;
-        return s;
-    };
-    return manipulator::smanip(h, n);
-}
+auto forward(std::ostream& s, const int x) -> std::ostream& {
+    s << CSI_expr << x << forward_expr;
+    return s;
+};
 
-manipulator::smanip back(const int n) {
-    auto h = [](std::ostream& s, const int x) -> std::ostream& {
-        s << CSI_expr << x << back_expr;
-        return s;
-    };
-    return manipulator::smanip(h, n);
-}
+auto back(std::ostream& s, const int x) -> std::ostream& {
+    s << CSI_expr << x << back_expr;
+    return s;
+};
 
-manipulator::smanip next_line(const int n) {
-    auto h = [](std::ostream& s, const int x) -> std::ostream& {
-        s << CSI_expr << x << next_line_expr;
-        return s;
-    };
-    return manipulator::smanip(h, n);
-}
+auto next_line(std::ostream& s, const int x) -> std::ostream& {
+    s << CSI_expr << x << next_line_expr;
+    return s;
+};
 
-manipulator::smanip prev_line(const int n) {
-    auto h = [](std::ostream& s, const int x) -> std::ostream& {
-        s << CSI_expr << x << prev_line_expr;
-        return s;
-    };
-    return manipulator::smanip(h, n);
-}
+auto prev_line(std::ostream& s, const int x) -> std::ostream& {
+    s << CSI_expr << x << prev_line_expr;
+    return s;
+};
 
-manipulator::smanip EL(clear n) {
-    /*
-     * n = 0: clear from cursor to end of screen
-     * n = 1: clear from cursor to beginning of the screen
-     * n = 2: clear entire line
-     *
-     * Cursor position does NOT change
-     */
-    auto h = [](std::ostream& s, const int x) -> std::ostream& {
-        s << CSI_expr << x << erase_in_line_expr;
-        return s;
-    };
-    return manipulator::smanip(h, static_cast<int>(n));
-}
+auto EL(std::ostream& s, const int x) -> std::ostream& {
+    s << CSI_expr << x << erase_in_line_expr;
+    return s;
+};
+
+}  // namespace internal
 
 std::ostream& save_pos(std::ostream& stream) {
-    stream << CSI_expr << save_cursor_expr;
+    stream << CSI_expr << internal::save_cursor_expr;
     return stream;
 }
 
 std::ostream& restore_pos(std::ostream& stream) {
-    stream << CSI_expr << restore_cursor_expr;
+    stream << CSI_expr << internal::restore_cursor_expr;
     return stream;
 }
 
