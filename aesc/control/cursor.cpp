@@ -28,7 +28,6 @@ auto up(std::ostream& s, const int x) -> std::ostream& {
 }
 
 auto down(std::ostream& s, const int x) -> std::ostream& {
-    // TODO: rewrite the following lines like in L26
     s << CSI_expr << x << down_expr;
     return s;
 };
