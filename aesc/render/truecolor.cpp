@@ -31,7 +31,7 @@ manipulator::smanipiii foreground(const int r, const int g, const int b) {
           << end_expr;
         return s;
     };
-    return {h, r, g, b};
+    return manipulator::smanipiii(h, r, g, b);
 }
 
 manipulator::smanipiii background(const int r, const int g, const int b) {
@@ -45,7 +45,7 @@ manipulator::smanipiii background(const int r, const int g, const int b) {
           << end_expr;
         return s;
     };
-    return {h, r, g, b};
+    return manipulator::smanipiii(h, r, g, b);
 }
 
 auto& fg = foreground;

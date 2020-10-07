@@ -19,9 +19,18 @@ namespace color256 {
 
 namespace RGB {
 
+namespace internal {
+
+std::ostream& foreground(std::ostream& s, int r, int g, int b);
+
+}
+
 manipulator::smanipiii foreground(int r = 0, int g = 0, int b = 0);
+
 manipulator::smanipiii background(int r = 0, int g = 0, int b = 0);
+
 extern decltype(foreground)& fg;
+
 extern decltype(background)& bg;
 
 }  // namespace RGB
@@ -32,8 +41,11 @@ namespace grey {
  * <n> ranges from 0 to 23, from white to black
  */
 manipulator::smanip foreground(int n = 1);
+
 manipulator::smanip background(int n = 1);
+
 extern decltype(foreground)& fg;
+
 extern decltype(background)& bg;
 
 }  // namespace grey

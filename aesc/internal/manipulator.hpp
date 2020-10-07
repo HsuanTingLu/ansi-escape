@@ -16,24 +16,30 @@ class smanip {
     friend std::ostream& operator<<(std::ostream&, const smanip&);
 
    public:
-    smanip(std::ostream& (*ff)(std::ostream&, const int), const int ii);
+    explicit constexpr smanip(std::ostream& (*const ff)(std::ostream&,
+                                                        const int),
+                              int ii) noexcept
+        : f(ff), i(ii) {}
 
    private:
-    std::ostream& (*f)(std::ostream&, const int);  // function to be called
-    const int i;  // value to be used as argument
+    std::ostream& (*const f)(std::ostream&,
+                             const int);  // function to be called
+    const int i;                          // value to be used as argument
 };
 
 class smanipiii {  // manipulator that takes triple ints as arguments
     friend std::ostream& operator<<(std::ostream&, const smanipiii&);
 
    public:
-    smanipiii(std::ostream& (*ff)(std::ostream&, const int, const int,
-                                  const int),
-              const int i1, const int i2, const int i3);
+    explicit constexpr smanipiii(std::ostream& (*const ff)(std::ostream&,
+                                                           const int, const int,
+                                                           const int),
+                                 int i1, int i2, int i3) noexcept
+        : f(ff), i1(i1), i2(i2), i3(i3) {}
 
    private:
-    std::ostream& (*f)(std::ostream&, const int, const int,
-                       const int);  // function to be called
+    std::ostream& (*const f)(std::ostream&, const int, const int,
+                             const int);  // function to be called
     // values to be used as argument
     const int i1;
     const int i2;

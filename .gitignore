@@ -1,5 +1,4 @@
 # Build system
-.clangd/
 ## Buck
 .buckd/
 buck-out/
@@ -7,8 +6,12 @@ buck-out/
 build/
 
 # Editors
+## SourceTrail
+.sourcetrail/
 ## vscode
 .vscode/
+## Clangd
+.clangd/
 
 # Prerequisites
 *.d

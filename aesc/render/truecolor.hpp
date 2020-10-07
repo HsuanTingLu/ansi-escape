@@ -16,8 +16,11 @@ namespace truecolor {
 inline namespace RGB {
 
 manipulator::smanipiii foreground(int r = 0, int g = 0, int b = 0);
+
 manipulator::smanipiii background(int r = 0, int g = 0, int b = 0);
+
 extern decltype(foreground)& fg;
+
 extern decltype(background)& bg;
 
 }  // namespace RGB
