@@ -1,21 +1,5 @@
 /*
- * Copyright (C) 2019  Hsuan-Ting Lu <hsuan.ting.lu.ee05@g2.nctu.edu.tw>
- *
  * Wrap 8-bit color codes within general output streams
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope tha it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- *
  */
 
 #include "aesc/render/color256.hpp"
@@ -47,7 +31,7 @@ manipulator::smanipiii foreground(const int r, const int g, const int b) {
           << end_expr;
         return s;
     };
-    return {h, r, g, b};
+    return manipulator::smanipiii(h, r, g, b);
 }
 
 manipulator::smanipiii background(const int r, const int g, const int b) {
@@ -61,7 +45,7 @@ manipulator::smanipiii background(const int r, const int g, const int b) {
           << end_expr;
         return s;
     };
-    return {h, r, g, b};
+    return manipulator::smanipiii(h, r, g, b);
 }
 
 auto& fg = foreground;
@@ -81,7 +65,7 @@ manipulator::smanip foreground(const int n) {
         s << CSI_expr << foreground_8bit_expr << 255 - x << end_expr;
         return s;
     };
-    return {h, n};
+    return manipulator::smanip(h, n);
 }
 
 manipulator::smanip background(const int n) {
@@ -93,7 +77,7 @@ manipulator::smanip background(const int n) {
         s << CSI_expr << background_8bit_expr << 255 - x << end_expr;
         return s;
     };
-    return {h, n};
+    return manipulator::smanip(h, n);
 }
 
 auto& fg = foreground;

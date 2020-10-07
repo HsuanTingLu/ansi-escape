@@ -1,21 +1,5 @@
 /*
- * Copyright (C) 2019  Hsuan-Ting Lu <hsuan.ting.lu.ee05@g2.nctu.edu.tw>
- *
  * Manipulators of general output streams that take one or three arguments
- *
- * This program is free software: you can redistribute it and/or modify
- * it under the terms of the GNU General Public License as published by
- * the Free Software Foundation, either version 3 of the License, or
- * (at your option) any later version.
- *
- * This program is distributed in the hope tha it will be useful,
- * but WITHOUT ANY WARRANTY; without even the implied warranty of
- * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
- * GNU General Public License for more details.
- *
- * You should have received a copy of the GNU General Public License
- * along with this program.  If not, see <https://www.gnu.org/licenses/>.
- *
  */
 
 #ifndef AESC_INTERNAL_MANIPULATOR_HPP_
@@ -32,24 +16,30 @@ class smanip {
     friend std::ostream& operator<<(std::ostream&, const smanip&);
 
    public:
-    smanip(std::ostream& (*ff)(std::ostream&, const int), const int ii);
+    explicit constexpr smanip(std::ostream& (*const ff)(std::ostream&,
+                                                        const int),
+                              int ii) noexcept
+        : f(ff), i(ii) {}
 
    private:
-    std::ostream& (*f)(std::ostream&, const int);  // function to be called
-    const int i;  // value to be used as argument
+    std::ostream& (*const f)(std::ostream&,
+                             const int);  // function to be called
+    const int i;                          // value to be used as argument
 };
 
 class smanipiii {  // manipulator that takes triple ints as arguments
     friend std::ostream& operator<<(std::ostream&, const smanipiii&);
 
    public:
-    smanipiii(std::ostream& (*ff)(std::ostream&, const int, const int,
-                                  const int),
-              const int i1, const int i2, const int i3);
+    explicit constexpr smanipiii(std::ostream& (*const ff)(std::ostream&,
+                                                           const int, const int,
+                                                           const int),
+                                 int i1, int i2, int i3) noexcept
+        : f(ff), i1(i1), i2(i2), i3(i3) {}
 
    private:
-    std::ostream& (*f)(std::ostream&, const int, const int,
-                       const int);  // function to be called
+    std::ostream& (*const f)(std::ostream&, const int, const int,
+                             const int);  // function to be called
     // values to be used as argument
     const int i1;
     const int i2;
