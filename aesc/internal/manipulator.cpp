@@ -2,7 +2,7 @@
  * Manipulators of general output streams that take one or three arguments
  */
 
-#include "aesc/internal/manipulator.hpp"
+#include "manipulator.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 

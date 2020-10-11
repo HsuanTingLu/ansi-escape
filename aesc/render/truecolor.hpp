@@ -7,7 +7,7 @@
 
 #include <iostream>
 
-#include "aesc/internal/manipulator.hpp"
+#include "../internal/manipulator.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 

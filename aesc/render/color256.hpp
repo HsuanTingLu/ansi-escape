@@ -5,7 +5,7 @@
 #ifndef AESC_RENDER_COLOR256_HPP_
 #define AESC_RENDER_COLOR256_HPP_
 
-#include "aesc/internal/manipulator.hpp"
+#include "../internal/manipulator.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 
