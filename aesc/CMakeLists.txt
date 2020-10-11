@@ -1,11 +1,10 @@
-add_library(aesc)  # Depends on option:BUILD_SHARED_LIBS
+add_library(aesc)  # Static/dynamic depends on option:BUILD_SHARED_LIBS
 
 target_sources(aesc
     INTERFACE
         ${PROJECT_SOURCE_DIR}/aesc/aesc.hpp
 )
 
-include(GNUInstallDirs)
 add_subdirectory(internal)
 add_subdirectory(control)
 add_subdirectory(render)
@@ -95,8 +94,10 @@ target_link_options(aesc
         $<$<AND:$<BOOL:${ENABLE_UBSAN}>,$<CONFIG:RelWithDebInfo>>:-fsanitize=-fsanitize-minimal-runtime>
 )
 
+include(GNUInstallDirs)
 install(TARGETS aesc
-    DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
 )
 install(
     FILES aesc.hpp

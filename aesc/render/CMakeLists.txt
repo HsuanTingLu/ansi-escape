@@ -1,10 +1,11 @@
 target_sources(aesc
-    PRIVATE
+    PUBLIC
         ${PROJECT_SOURCE_DIR}/aesc/render/render.hpp
         ${PROJECT_SOURCE_DIR}/aesc/render/color.hpp
         ${PROJECT_SOURCE_DIR}/aesc/render/color256.hpp
         ${PROJECT_SOURCE_DIR}/aesc/render/truecolor.hpp
         ${PROJECT_SOURCE_DIR}/aesc/render/internal.hpp
+    PRIVATE
         ${PROJECT_SOURCE_DIR}/aesc/render/render.cpp
         ${PROJECT_SOURCE_DIR}/aesc/render/color.cpp
         ${PROJECT_SOURCE_DIR}/aesc/render/color256.cpp
