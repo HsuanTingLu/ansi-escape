@@ -2,7 +2,7 @@
  * Wraps cursor control sequences
  */
 
-#include "aesc/control/cursor.hpp"
+#include "cursor.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 

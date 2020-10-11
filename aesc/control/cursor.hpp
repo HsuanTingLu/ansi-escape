@@ -5,8 +5,8 @@
 #ifndef AESC_CONTROL_CURSOR_HPP_
 #define AESC_CONTROL_CURSOR_HPP_
 
-#include "aesc/internal/manipulator.hpp"
-#include "aesc/internal/sequences.hpp"
+#include "../internal/manipulator.hpp"
+#include "../internal/sequences.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 

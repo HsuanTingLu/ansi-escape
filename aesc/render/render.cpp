@@ -2,10 +2,10 @@
  * Wrap the Select Graphic Rendition codes
  */
 
-#include "aesc/render/render.hpp"
+#include "render.hpp"
 
-#include "aesc/internal/sequences.hpp"
-#include "aesc/render/internal.hpp"
+#include "../internal/sequences.hpp"
+#include "internal.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 

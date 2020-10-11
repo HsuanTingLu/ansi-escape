@@ -2,12 +2,12 @@
  * Wrap 8-bit color codes within general output streams
  */
 
-#include "aesc/render/color256.hpp"
+#include "color256.hpp"
 
 #include <stdexcept>
 
-#include "aesc/internal/sequences.hpp"
-#include "aesc/render/internal.hpp"
+#include "../internal/sequences.hpp"
+#include "internal.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 

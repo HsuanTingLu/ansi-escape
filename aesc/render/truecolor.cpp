@@ -2,12 +2,12 @@
  * Wrap 24-bit true color codes within general output streams
  */
 
-#include "aesc/render/truecolor.hpp"
+#include "truecolor.hpp"
 
 #include <stdexcept>
 
-#include "aesc/internal/sequences.hpp"
-#include "aesc/render/internal.hpp"
+#include "../internal/sequences.hpp"
+#include "internal.hpp"
 
 namespace aesc {  // Ansi Escape Terminal
 
