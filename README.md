@@ -35,18 +35,19 @@ Find detailed list of available APIs at [docs](aesc/README.md) and [wikipedia](h
 #include <iostream>
 #include "aesc.hpp"
 using namespace std;
+using aesc::color;
 
 int main() {
-    std::cout << aesc::color::red << " foreground is red" << std::endl;
+    cout << red << " foreground is red" << endl;
 
-    std::cout << aesc::color::bright::red << aesc::color::bright::background::cyan
-         << " background bright cyan, foreground bright red" << std::endl;
+    cout << bright::red << bright::background::cyan
+         << " background bright cyan, foreground bright red" << endl;
 
-    std::cout << aesc::color256::RGB::foreground(2, 3, 0) << "256 color RGB test sequence"
-         << std::endl;
+    cout << aesc::color256::RGB::foreground(2, 3, 0) << "256 color RGB test sequence"
+         << endl;
 
-    std::cout << aesc::truecolor::RGB::foreground(130, 250, 0)
-         << "24-bit true color RGB test sequence" << aesc::render::reset << std::endl;
+    cout << aesc::truecolor::RGB::foreground(130, 250, 0)
+         << "24-bit true color RGB test sequence" << aesc::render::reset << endl;
 }
 ```
 
